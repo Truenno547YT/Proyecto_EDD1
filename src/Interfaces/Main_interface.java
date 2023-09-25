@@ -9,6 +9,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;  
 import java.io.FileNotFoundException;  
 import java.util.Scanner; 
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
+import org.graphstream.ui.graphicGraph.*;
 
 /**
  *
@@ -16,6 +19,7 @@ import java.util.Scanner;
  */
 public class Main_interface extends javax.swing.JFrame {
 
+public static Graph grafo = new SingleGraph("Red Social");
 	/**
 	 * Creates new form FIle_Chooser
 	 */
@@ -34,18 +38,23 @@ public class Main_interface extends javax.swing.JFrame {
 
                 jPanel2 = new javax.swing.JPanel();
                 jButton1 = new javax.swing.JButton();
-                jButton2 = new javax.swing.JButton();
+                leer_archivo = new javax.swing.JButton();
                 jLabel1 = new javax.swing.JLabel();
                 jButton3 = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
                 jButton1.setText("Ver Grafo");
-
-                jButton2.setText("Cargar datos de usuarios");
-                jButton2.addActionListener(new java.awt.event.ActionListener() {
+                jButton1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton2ActionPerformed(evt);
+                                jButton1ActionPerformed(evt);
+                        }
+                });
+
+                leer_archivo.setText("Cargar datos de usuarios");
+                leer_archivo.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                leer_archivoActionPerformed(evt);
                         }
                 });
 
@@ -68,7 +77,7 @@ public class Main_interface extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(leer_archivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap(115, Short.MAX_VALUE))
                 );
@@ -80,7 +89,7 @@ public class Main_interface extends javax.swing.JFrame {
                                 .addGap(73, 73, 73)
                                 .addComponent(jButton1)
                                 .addGap(30, 30, 30)
-                                .addComponent(jButton2)
+                                .addComponent(leer_archivo)
                                 .addGap(33, 33, 33)
                                 .addComponent(jButton3)
                                 .addContainerGap(83, Short.MAX_VALUE))
@@ -105,7 +114,7 @@ public class Main_interface extends javax.swing.JFrame {
 		
         }//GEN-LAST:event_jButton3ActionPerformed
 
-        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        private void leer_archivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leer_archivoActionPerformed
                 // TODO add your handling code here:
 		// damn bro thats crazy
 		JFileChooser fileChooser = new JFileChooser();
@@ -114,9 +123,9 @@ public class Main_interface extends javax.swing.JFrame {
 		fileChooser.setFileFilter(filter);
 		int result = fileChooser.showOpenDialog(jPanel2);
 		File selectedFile = fileChooser.getSelectedFile();
-		System.out.println("Seleccion Exitosa, Ubicacion:" + selectedFile);
 		try {
 			Scanner lector = new Scanner(selectedFile);
+			System.out.println("Seleccion Exitosa, Ubicacion:" + selectedFile);
 			StringBuilder data = new StringBuilder();
 			while (lector.hasNextLine()) {
 				String data_ln = lector.nextLine();
@@ -132,13 +141,36 @@ public class Main_interface extends javax.swing.JFrame {
 			}
 
 				String relaciones_split = data.toString().split("relaciones")[1];
+				String[] wait = relaciones_split.split("@");
+				for (int i = 1; i < wait.length; i++) {
+				if (wait[i] != null && wait[i+1] != null){
+					String to_insert = wait[i] + wait[i+1];
+					main.lista_relaciones.InsertLast(to_insert);
+					i++;
+				}		
+			}
+
+
 		}catch (Exception FileNotFoundException) {
+		System.out.println("Seleccion Fallida, Intentelo de Nuevo");
 			System.out.println("lol");
 	}
 		
 		
 		
-        }//GEN-LAST:event_jButton2ActionPerformed
+        }//GEN-LAST:event_leer_archivoActionPerformed
+
+        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                // TODO add your handling code here:
+		//not coding more like coping so hard ;-;
+		grafo.setStrict(false);
+		grafo.setAutoCreate(true);
+		grafo.addNode("a");
+		grafo.addNode("b");
+		grafo.addNode("c");
+		grafo.display();
+		
+        }//GEN-LAST:event_jButton1ActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -178,9 +210,9 @@ public class Main_interface extends javax.swing.JFrame {
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton jButton1;
-        private javax.swing.JButton jButton2;
         private javax.swing.JButton jButton3;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JPanel jPanel2;
+        private javax.swing.JButton leer_archivo;
         // End of variables declaration//GEN-END:variables
 }

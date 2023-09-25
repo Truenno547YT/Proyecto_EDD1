@@ -5,12 +5,20 @@
 package Main;
 import estructuras.Lista_T;
 import Interfaces.Main_interface;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;  
+import java.io.FileNotFoundException;  
+import java.util.Scanner; 
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
 /**
  *
  * @author truenno
  */
 public class main {
 public static Lista_T lista_usuarios = new Lista_T(); 
+public static Lista_T lista_relaciones = new Lista_T();
     /**
      * @param args the command line arguments
      */
