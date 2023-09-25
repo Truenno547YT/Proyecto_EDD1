@@ -12,6 +12,7 @@ import java.util.Scanner;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.ui.graphicGraph.*;
+import estructuras.Nodo;
 
 /**
  *
@@ -134,7 +135,7 @@ public static Graph grafo = new SingleGraph("Red Social");
 				String usuarios_split = data.toString().split("relaciones")[0];
 				String[] usuarios_split2 = usuarios_split.split("usuarios");
 				String[] usuarios_split3 = usuarios_split2[1].split("@");
-				for (int i =0; i < usuarios_split3.length; i++) {
+				for (int i =1; i < usuarios_split3.length; i++) {
 					String to_insert = "@" + usuarios_split3[i];
 					main.lista_usuarios.InsertLast(to_insert);
 				
@@ -144,7 +145,7 @@ public static Graph grafo = new SingleGraph("Red Social");
 				String[] wait = relaciones_split.split("@");
 				for (int i = 1; i < wait.length; i++) {
 				if (wait[i] != null && wait[i+1] != null){
-					String to_insert = wait[i] + wait[i+1];
+					String to_insert = "@"+ wait[i] + "@"+ wait[i+1];
 					main.lista_relaciones.InsertLast(to_insert);
 					i++;
 				}		
@@ -165,10 +166,23 @@ public static Graph grafo = new SingleGraph("Red Social");
 		//not coding more like coping so hard ;-;
 		grafo.setStrict(false);
 		grafo.setAutoCreate(true);
-		grafo.addNode("a");
-		grafo.addNode("b");
-		grafo.addNode("c");
+
+		for (Nodo pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+			grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+		}
+		for (Nodo pAux = main.lista_relaciones.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+			String[] to_insert = pAux.getData().toString().split(", ");
+			grafo.addEdge(to_insert[0]+to_insert[1], to_insert[0], to_insert[1]);
+		}
+		grafo.setAttribute("ui.stylesheet", "node{\n" +
+                "    size: 30px, 30px;\n" +
+                "    fill-color: #000000;\n" +
+                "    text-mode: normal; \n" +
+                "    text-size: 15px; \n" +
+                "}");
 		grafo.display();
+
+
 		
         }//GEN-LAST:event_jButton1ActionPerformed
 
