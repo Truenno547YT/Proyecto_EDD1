@@ -4,25 +4,18 @@
  */
 package Main;
 import estructuras.Lista_T;
+import Interfaces.Main_interface;
 /**
  *
  * @author truenno
  */
 public class main {
-public static Lista_T lista = new Lista_T(); 
+public static Lista_T lista_usuarios = new Lista_T(); 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-	
-
-	     lista.InsertLast(1);
-	     lista.InsertLast(2);
-	     lista.InsertLast(3);
-	     lista.InsertLast(4);
-
-	     lista.print();
+	Main_interface.main(args);
     }
     
 }

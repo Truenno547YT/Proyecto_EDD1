@@ -117,10 +117,13 @@ public class Main_interface extends javax.swing.JFrame {
 		System.out.println("Seleccion Exitosa, Ubicacion:" + selectedFile);
 		try {
 			Scanner lector = new Scanner(selectedFile);
+			StringBuilder data = new StringBuilder();
 			while (lector.hasNextLine()) {
-				String data = lector.nextLine();
+				String data_ln = lector.nextLine();
+				data.append(data_ln);
+				}
 				System.out.println(data);
-			}
+				System.out.println(data.toString().split("relaciones")[0]);
 		}catch (Exception FileNotFoundException) {
 			System.out.println("lol");
 	}
