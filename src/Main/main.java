@@ -8,14 +8,14 @@ import estructuras.Lista_T;
  *
  * @author truenno
  */
-public class Proyecto_EDD1 {
-
+public class main {
+public static Lista_T lista = new Lista_T(); 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-	     Lista_T lista = new Lista_T(); 
+	
 
 	     lista.InsertLast(1);
 	     lista.InsertLast(2);

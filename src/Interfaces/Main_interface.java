@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
+import Main.main;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;  
+import java.io.FileNotFoundException;  
+import java.util.Scanner; 
 
 /**
  *
@@ -37,6 +43,11 @@ public class Main_interface extends javax.swing.JFrame {
                 jButton1.setText("Ver Grafo");
 
                 jButton2.setText("Cargar datos de usuarios");
+                jButton2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jButton2ActionPerformed(evt);
+                        }
+                });
 
                 jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
                 jLabel1.setText("Bienvenido al Sistema");
@@ -90,8 +101,33 @@ public class Main_interface extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
         private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-                // TODO add your handling code here:
+
+		
         }//GEN-LAST:event_jButton3ActionPerformed
+
+        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                // TODO add your handling code here:
+		// damn bro thats crazy
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
+		fileChooser.setFileFilter(filter);
+		int result = fileChooser.showOpenDialog(jPanel2);
+		File selectedFile = fileChooser.getSelectedFile();
+		System.out.println("Seleccion Exitosa, Ubicacion:" + selectedFile);
+		try {
+			Scanner lector = new Scanner(selectedFile);
+			while (lector.hasNextLine()) {
+				String data = lector.nextLine();
+				System.out.println(data);
+			}
+		}catch (Exception FileNotFoundException) {
+			System.out.println("lol");
+	}
+		
+		
+		
+        }//GEN-LAST:event_jButton2ActionPerformed
 
 	/**
 	 * @param args the command line arguments
