@@ -122,8 +122,16 @@ public class Main_interface extends javax.swing.JFrame {
 				String data_ln = lector.nextLine();
 				data.append(data_ln);
 				}
-				System.out.println(data);
-				System.out.println(data.toString().split("relaciones")[0]);
+				String usuarios_split = data.toString().split("relaciones")[0];
+				String[] usuarios_split2 = usuarios_split.split("usuarios");
+				String[] usuarios_split3 = usuarios_split2[1].split("@");
+				for (int i =0; i < usuarios_split3.length; i++) {
+					String to_insert = "@" + usuarios_split3[i];
+					main.lista_usuarios.InsertLast(to_insert);
+				
+			}
+
+				String relaciones_split = data.toString().split("relaciones")[1];
 		}catch (Exception FileNotFoundException) {
 			System.out.println("lol");
 	}
