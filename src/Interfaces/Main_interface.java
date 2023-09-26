@@ -13,7 +13,7 @@ import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.ui.graphicGraph.*;
 import estructuras.Nodo;
-
+import Funciones.funciones;
 /**
  *
  * @author truenno
@@ -123,40 +123,9 @@ public static Graph grafo = new SingleGraph("Red Social");
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
 		fileChooser.setFileFilter(filter);
 		int result = fileChooser.showOpenDialog(jPanel2);
-		File selectedFile = fileChooser.getSelectedFile();
-		try {
-			Scanner lector = new Scanner(selectedFile);
-			System.out.println("Seleccion Exitosa, Ubicacion:" + selectedFile);
-			StringBuilder data = new StringBuilder();
-			while (lector.hasNextLine()) {
-				String data_ln = lector.nextLine();
-				data.append(data_ln);
-				}
-				String usuarios_split = data.toString().split("relaciones")[0];
-				String[] usuarios_split2 = usuarios_split.split("usuarios");
-				String[] usuarios_split3 = usuarios_split2[1].split("@");
-				for (int i =1; i < usuarios_split3.length; i++) {
-					String to_insert = "@" + usuarios_split3[i];
-					main.lista_usuarios.InsertLast(to_insert);
-				
-			}
-
-				String relaciones_split = data.toString().split("relaciones")[1];
-				String[] wait = relaciones_split.split("@");
-				for (int i = 1; i < wait.length; i++) {
-				if (wait[i] != null && wait[i+1] != null){
-					String to_insert = "@"+ wait[i] + "@"+ wait[i+1];
-					main.lista_relaciones.InsertLast(to_insert);
-					i++;
-				}		
-			}
-
-
-		}catch (Exception FileNotFoundException) {
-		System.out.println("Seleccion Fallida, Intentelo de Nuevo");
-			System.out.println("lol");
-	}
-		
+		File selectedFile = fileChooser.getSelectedFile();	
+		main.selectedFile = fileChooser.getSelectedFile();
+		funciones.leer_archivo(main.selectedFile);
 		
 		
         }//GEN-LAST:event_leer_archivoActionPerformed

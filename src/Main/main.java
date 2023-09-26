@@ -19,6 +19,8 @@ import org.graphstream.graph.implementations.*;
 public class main {
 public static Lista_T lista_usuarios = new Lista_T(); 
 public static Lista_T lista_relaciones = new Lista_T();
+public static Lista_T lista_adyacencia = new Lista_T();
+public static File selectedFile;
     /**
      * @param args the command line arguments
      */
