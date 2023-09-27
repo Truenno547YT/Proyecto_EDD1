@@ -125,7 +125,6 @@ public static Graph grafo = new SingleGraph("Red Social");
 		File selectedFile = fileChooser.getSelectedFile();	
 		main.selectedFile = fileChooser.getSelectedFile();
 		funciones.leer_archivo();
-		funciones.CreateAdylist();
 		
 		
         }//GEN-LAST:event_leer_archivoActionPerformed
