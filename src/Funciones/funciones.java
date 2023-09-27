@@ -9,6 +9,7 @@ import org.graphstream.graph.implementations.*;
 import org.graphstream.ui.graphicGraph.*;
 import estructuras.Nodo;
 import Main.main;
+import estructuras.Lista_T;
 
 
 /*
@@ -22,7 +23,7 @@ import Main.main;
  */
 public class funciones {
 
-	public static void leer_archivo(File selectedFile) {
+	public static void leer_archivo() {
 		
 		try {
 			Scanner lector = new Scanner(main.selectedFile);
@@ -55,6 +56,24 @@ public class funciones {
 			System.out.println("lol");
 		}
 	
+	}
+
+	public static void CreateAdylist() {
+		
+		for (Nodo pAux = main.lista_relaciones.getpFirst() ; pAux != null ;  pAux = pAux.getPnext()){
+			String[] ok = pAux.getData().toString().split(", ");
+			String parent = ok[0];
+			Lista_T dunno = new Lista_T();
+			dunno.InsertLast(ok[0]);
+			for (Nodo pAux2 = main.lista_relaciones.getpFirst() ; pAux2 != null ;  pAux2 = pAux.getPnext()){
+				String[] ok2 = pAux2.getData().toString().split(", ");
+				if (parent == ok2[0]) {
+					
+				}
+				
+			}
+		}
+		
 	}
 
 }

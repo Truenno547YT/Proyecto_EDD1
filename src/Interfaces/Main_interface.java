@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner; 
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
-import org.graphstream.ui.graphicGraph.*;
 import estructuras.Nodo;
 import Funciones.funciones;
 /**
@@ -125,7 +124,7 @@ public static Graph grafo = new SingleGraph("Red Social");
 		int result = fileChooser.showOpenDialog(jPanel2);
 		File selectedFile = fileChooser.getSelectedFile();	
 		main.selectedFile = fileChooser.getSelectedFile();
-		funciones.leer_archivo(main.selectedFile);
+		funciones.leer_archivo();
 		
 		
         }//GEN-LAST:event_leer_archivoActionPerformed
