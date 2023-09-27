@@ -58,22 +58,5 @@ public class funciones {
 	
 	}
 
-	public static void CreateAdylist() {
 		
-		for (Nodo pAux = main.lista_relaciones.getpFirst() ; pAux != null ;  pAux = pAux.getPnext()){
-			String[] ok = pAux.getData().toString().split(", ");
-			String parent = ok[0];
-			Lista_T dunno = new Lista_T();
-			dunno.InsertLast(ok[0]);
-			for (Nodo pAux2 = main.lista_relaciones.getpFirst() ; pAux2 != null ;  pAux2 = pAux.getPnext()){
-				String[] ok2 = pAux2.getData().toString().split(", ");
-				if (parent == ok2[0]) {
-					
-				}
-				
-			}
-		}
-		
-	}
-
 }
