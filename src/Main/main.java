@@ -24,7 +24,7 @@ public static File selectedFile;
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-	Main_interface.main(args);
+        Main_interface.main(args);
     }
     
 }

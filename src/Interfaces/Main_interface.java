@@ -14,6 +14,7 @@ import org.graphstream.graph.implementations.*;
 import estructuras.NodoUsuario;
 import Funciones.funciones;
 import java.awt.HeadlessException;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 /**
  *
@@ -26,6 +27,7 @@ public static Graph grafo = new SingleGraph("Red Social");
 	 * Creates new form FIle_Chooser
 	 */
 	public Main_interface() {
+        //this.setLocationRelativeTo(null);
 		initComponents();
 	}
 
@@ -42,8 +44,8 @@ public static Graph grafo = new SingleGraph("Red Social");
         jButton1 = new javax.swing.JButton();
         leer_archivo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
+        componentes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,17 +68,17 @@ public static Graph grafo = new SingleGraph("Red Social");
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido al Sistema");
 
-        jButton3.setText("Modificar datos de usuario");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        modificar.setText("Modificar datos de usuario");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                modificarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Componentes fuertemente conectados");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        componentes.setText("Componentes fuertemente conectados");
+        componentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                componentesActionPerformed(evt);
             }
         });
 
@@ -89,8 +91,8 @@ public static Graph grafo = new SingleGraph("Red Social");
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(leer_archivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(componentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
@@ -102,9 +104,9 @@ public static Graph grafo = new SingleGraph("Red Social");
                 .addGap(35, 35, 35)
                 .addComponent(leer_archivo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(modificar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(componentes)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(87, Short.MAX_VALUE))
@@ -124,10 +126,10 @@ public static Graph grafo = new SingleGraph("Red Social");
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+            Modificar_interfaz v2 = new Modificar_interfaz(this);
 		
-        }//GEN-LAST:event_jButton3ActionPerformed
+        }//GEN-LAST:event_modificarActionPerformed
 
         private void leer_archivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leer_archivoActionPerformed
                 // TODO add your handling code here:
@@ -172,9 +174,9 @@ public static Graph grafo = new SingleGraph("Red Social");
 		
         }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_componentesActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -213,11 +215,11 @@ public static Graph grafo = new SingleGraph("Red Social");
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton componentes;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton leer_archivo;
+    private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables
 }
