@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
-import estructuras.Lista_T;
+import estructuras.ListaUsuarios;
 import Interfaces.Main_interface;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -14,11 +14,11 @@ import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 /**
  *
- * @author truenno
+ * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class main {
-public static Lista_T lista_usuarios = new Lista_T(); 
-public static Lista_T lista_relaciones = new Lista_T();
+public static ListaUsuarios lista_usuarios = new ListaUsuarios(); 
+public static ListaUsuarios lista_relaciones = new ListaUsuarios();
 public static File selectedFile;
     /**
      * @param args the command line arguments

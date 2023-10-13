@@ -7,9 +7,10 @@ import java.util.Scanner;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.ui.graphicGraph.*;
-import estructuras.Nodo;
+import estructuras.NodoUsuario;
 import Main.main;
-import estructuras.Lista_T;
+import estructuras.ListaUsuarios;
+import javax.swing.JOptionPane;
 
 
 /*
@@ -19,7 +20,7 @@ import estructuras.Lista_T;
 
 /**
  *
- * @author truenno
+ * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class funciones {
 
@@ -51,9 +52,8 @@ public class funciones {
 					i++;
 				}		
 			}
-		}catch (Exception FileNotFoundException) {
-			System.out.println("Seleccion Fallida, Intentelo de Nuevo");
-			System.out.println("lol");
+		}catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erorr!!!! No has cargado el archivo correcto");
 		}
 	
 	}

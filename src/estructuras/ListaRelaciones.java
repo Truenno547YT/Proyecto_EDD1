@@ -6,33 +6,36 @@ package estructuras;
 
 /**
  *
- * @author truenno
+ * @author Ana Blanco, Andrés Diaz, Luis Rivera.
  */
-public class Lista_T<T> {
-	
-	private Nodo<T> pFirst;
-	private Nodo<T> pLast;
+public class ListaRelaciones<T> {
+    
+    private NodoRelacion<T> pFirst;
+	private NodoRelacion<T> pLast;
 	private int size;
-
-	public Lista_T() {
+        
+        //Constructor
+	public ListaRelaciones() {
 		this.pFirst = null;
 		this.pLast = null;
 		this.size = 0;
 	}
+        
+        //Getters and Setters
 
-	public Nodo<T> getpFirst() {
+	public NodoRelacion<T> getpFirst() {
 		return pFirst;
 	}
 
-	public void setpFirst(Nodo<T> pFirst) {
+	public void setpFirst(NodoRelacion<T> pFirst) {
 		this.pFirst = pFirst;
 	}
 
-	public Nodo<T> getpLast() {
+	public NodoRelacion<T> getpLast() {
 		return pLast;
 	}
 
-	public void setpLast(Nodo<T> pLast) {
+	public void setpLast(NodoRelacion<T> pLast) {
 		this.pLast = pLast;
 	}
 
@@ -45,13 +48,14 @@ public class Lista_T<T> {
 	}
 
 	
-
+        // FUNCIONES DE LA LISTA
 	public boolean isEmpty() {
-		return size == 0;
+		return this.pFirst == null;
 	}
 
 	public void InsertBegin(T data) {
-		Nodo nodo = new Nodo(data);
+		NodoRelacion nodo = new NodoRelacion(data);
+                
 		if (isEmpty()) {
 			this.setpFirst(nodo);
 			this.setpLast(nodo);
@@ -64,7 +68,7 @@ public class Lista_T<T> {
 
 
 	public void InsertLast(T data) {
-		Nodo nodo = new Nodo(data);
+		NodoRelacion nodo = new NodoRelacion(data);
 		if (isEmpty()) {
 			this.setpFirst(nodo);
 			this.setpLast(nodo);
@@ -76,13 +80,11 @@ public class Lista_T<T> {
 	}
 
 	public void print() {
-		Nodo pAux = this.getpFirst();
+		NodoRelacion pAux = this.getpFirst();
 		while (pAux != null) {
 			System.out.println(pAux.getData());
 			pAux = pAux.getPnext();
 		}
 	}
 
-
-	
 }
