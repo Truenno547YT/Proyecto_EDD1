@@ -22,14 +22,15 @@ import javax.swing.JOptionPane;
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class Main_interface extends javax.swing.JFrame {
+        
+    public static Modificar_interfaz v2;
 
-public static Graph grafo = new SingleGraph("Red Social");
+    public static Graph grafo = new SingleGraph("Red Social");
 	/**
 	 * Creates new form FIle_Chooser
 	 */
-	public Main_interface() {
-        //this.setLocationRelativeTo(null);
-		initComponents();
+	public Main_interface(Modificar_interfaz v21) {
+        initComponents();
 	}
 
 	/**
@@ -218,7 +219,7 @@ public static Graph grafo = new SingleGraph("Red Social");
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new Main_interface().setVisible(true);
+				new Main_interface(v2).setVisible(true);
 			}
 		});
 	}
