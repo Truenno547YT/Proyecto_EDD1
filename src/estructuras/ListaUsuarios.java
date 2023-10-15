@@ -53,8 +53,8 @@ public class ListaUsuarios<T> {
 		return this.pFirst == null;
 	}
 
-	public void InsertBegin(T data, ListaRelaciones list) {
-		NodoUsuario nodo = new NodoUsuario(data, list);
+	public void InsertBegin(T data) {
+		NodoUsuario nodo = new NodoUsuario(data);
 		if (isEmpty()) {
 			this.setpFirst(nodo);
 			this.setpLast(nodo);
@@ -66,8 +66,8 @@ public class ListaUsuarios<T> {
 	}
 
 
-	public void InsertLast(T data, ListaRelaciones list) {
-		NodoUsuario nodo = new NodoUsuario(data, list);
+	public void InsertLast(T data) {
+		NodoUsuario nodo = new NodoUsuario(data);
 		if (isEmpty()) {
 			this.setpFirst(nodo);
 			this.setpLast(nodo);
@@ -75,17 +75,47 @@ public class ListaUsuarios<T> {
 			this.pLast.setPnext(nodo);
 			this.pLast = nodo;
 		}
-		size++;
+		this.size++;
 	}
 
 	public void print() {
 		NodoUsuario pAux = this.getpFirst();
 		while (pAux != null) {
-			System.out.println(pAux.getData());
+			System.out.println("\n"+pAux.getData());
+            String lista = pAux.getAdyList().print();
+            System.out.println("Lista adyacente: "+ lista + "\n");
 			pAux = pAux.getPnext();
 		}
 	}
-
+    
+    //    Buscar por indices
+    public NodoUsuario<T> searchByIndex(int index){
+        NodoUsuario<T> pAux = this.pFirst;
+        int count = 0;
+        
+        while(pAux != null && count != index){
+            pAux = pAux.getPnext();
+            count++;
+        }
+        
+        if(pAux != null){
+            return pAux;
+        }else{
+            return null;
+        }
+    }
+    
+    
+    //    Buscar información por el indice
+    public String returnIndexData(int index){
+        NodoUsuario<T> returnedNode = this.searchByIndex(index);
+        
+        if(returnedNode == null){
+            return null;
+        }else{
+            return (String)returnedNode.getData();
+        }
+    }
 
 	
 }

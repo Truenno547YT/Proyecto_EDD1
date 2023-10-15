@@ -18,7 +18,6 @@ import org.graphstream.graph.implementations.*;
  */
 public class main {
 public static ListaUsuarios lista_usuarios = new ListaUsuarios(); 
-public static ListaUsuarios lista_relaciones = new ListaUsuarios();
 public static File selectedFile;
     /**
      * @param args the command line arguments

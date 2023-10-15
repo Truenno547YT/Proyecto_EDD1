@@ -76,15 +76,18 @@ public class ListaRelaciones<T> {
 			this.pLast.setPnext(nodo);
 			this.pLast = nodo;
 		}
-		size++;
+		this.size++;
 	}
 
-	public void print() {
+	public String print() {
 		NodoRelacion pAux = this.getpFirst();
+        String list = "";
 		while (pAux != null) {
-			System.out.println(pAux.getData());
+			list = list + " - " + (String)pAux.getData();
 			pAux = pAux.getPnext();
 		}
+        
+        return list;
 	}
 
 }

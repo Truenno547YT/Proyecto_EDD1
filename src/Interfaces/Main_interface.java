@@ -13,6 +13,7 @@ import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import estructuras.NodoUsuario;
 import Funciones.funciones;
+import estructuras.NodoRelacion;
 import java.awt.HeadlessException;
 import java.util.Locale;
 import javax.swing.JOptionPane;
@@ -41,7 +42,7 @@ public static Graph grafo = new SingleGraph("Red Social");
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        VerGrafo = new javax.swing.JButton();
         leer_archivo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         modificar = new javax.swing.JButton();
@@ -51,10 +52,10 @@ public static Graph grafo = new SingleGraph("Red Social");
 
         jPanel2.setBackground(new java.awt.Color(181, 176, 193));
 
-        jButton1.setText("Ver Grafo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VerGrafo.setText("Ver Grafo");
+        VerGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                VerGrafoActionPerformed(evt);
             }
         });
 
@@ -93,7 +94,7 @@ public static Graph grafo = new SingleGraph("Red Social");
                     .addComponent(leer_archivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(modificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(componentes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(VerGrafo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -108,7 +109,7 @@ public static Graph grafo = new SingleGraph("Red Social");
                 .addGap(18, 18, 18)
                 .addComponent(componentes)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(VerGrafo)
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
@@ -149,30 +150,38 @@ public static Graph grafo = new SingleGraph("Red Social");
 		
         }//GEN-LAST:event_leer_archivoActionPerformed
 
-        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        private void VerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerGrafoActionPerformed
                 // TODO add your handling code here:
 		//not coding more like coping so hard ;-;
 		grafo.setStrict(false);
 		grafo.setAutoCreate(true);
-
-		for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
-			grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-		}
-		for (NodoUsuario pAux = main.lista_relaciones.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
-			String[] to_insert = pAux.getData().toString().split(", ");
-			grafo.addEdge(to_insert[0]+to_insert[1], to_insert[0], to_insert[1]);
-		}
-		grafo.setAttribute("ui.stylesheet", "node{\n" +
-                "    size: 30px, 30px;\n" +
-                "    fill-color: #000000;\n" +
-                "    text-mode: normal; \n" +
-                "    text-size: 15px; \n" +
-                "}");
-		grafo.display();
-
+        
+        if(!main.lista_usuarios.isEmpty()){
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
+            
+            
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null ; pAux = pAux.getPnext() ) {
+                String nodo1 = (String)pAux.getData();
+                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
+                    String nodo2 = (String)pAux1.getData();
+                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2);
+                }
+            }
+            grafo.setAttribute("ui.stylesheet", "node{\n" +
+                    "    size: 30px, 30px;\n" +
+                    "    fill-color: #000000;\n" +
+                    "    text-mode: normal; \n" +
+                    "    text-size: 15px; \n" +
+                    "}");
+            grafo.display();
+        }else{
+            JOptionPane.showMessageDialog(null,"No se ha cargado ningín archivo!");
+        }
 
 		
-        }//GEN-LAST:event_jButton1ActionPerformed
+        }//GEN-LAST:event_VerGrafoActionPerformed
 
     private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
         // TODO add your handling code here:
@@ -215,8 +224,8 @@ public static Graph grafo = new SingleGraph("Red Social");
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton VerGrafo;
     private javax.swing.JButton componentes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton leer_archivo;

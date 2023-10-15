@@ -50,7 +50,7 @@
                       <Component id="leer_archivo" max="32767" attributes="0"/>
                       <Component id="modificar" alignment="1" max="32767" attributes="0"/>
                       <Component id="componentes" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="VerGrafo" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="117" max="32767" attributes="0"/>
               </Group>
@@ -68,19 +68,19 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="componentes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="VerGrafo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="87" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="VerGrafo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver Grafo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerGrafoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="leer_archivo">
