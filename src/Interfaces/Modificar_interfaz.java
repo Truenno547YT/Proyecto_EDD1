@@ -4,6 +4,12 @@
  */
 package Interfaces;
 
+import Funciones.funciones;
+import static Funciones.funciones.leer_archivo;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Ana Blanco
@@ -129,7 +135,10 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
     private void GuardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardartxtActionPerformed
+        
+        funciones.escribir_archivo();
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_GuardartxtActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

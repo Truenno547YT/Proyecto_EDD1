@@ -11,6 +11,8 @@ import estructuras.NodoUsuario;
 import estructuras.ListaRelaciones;
 import Main.main;
 import estructuras.ListaUsuarios;
+import estructuras.NodoRelacion;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 
@@ -73,11 +75,59 @@ public class funciones {
                 usuario.setAdyList(relaciones);
             } 
             
+            JOptionPane.showMessageDialog(null, "Ha ingresado la información correctamente");
+            
 		}catch(FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erorr!!!! No has cargado el archivo correcto");
 		}
 	
 	}
-
+    
+    public static void escribir_archivo(){  
+        
+        String guardar = "usuarios\n";
+        
+            if(!main.lista_usuarios.isEmpty()){
+                
+                NodoUsuario pAux = main.lista_usuarios.getpFirst();
+        
+                for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+                    guardar += pAux.getData() + "\n";
+                    pAux = pAux.getPnext();
+                }
+        
+                guardar += "relaciones\n";
+        
+                pAux =  main.lista_usuarios.getpFirst();
+        
+                for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+                    String name = (String) pAux.getData();
+                    NodoRelacion adyacente = pAux.getAdyList().getpFirst();
+            
+                    for (int j = 0; j < pAux.getAdyList().getSize() ; j++) {
+                        guardar = guardar + name + "," + adyacente.getData()+ "\n";
+                        adyacente = adyacente.getPnext();
+                    }
+                    pAux = pAux.getPnext();
+                }
+        
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "No hay información para actualizar");
+            }
+            
+        try{
+                PrintWriter pw = new PrintWriter("test\\datos.txt");
+                pw.print(guardar);
+                pw.close();
+                JOptionPane.showMessageDialog(null, "Se ha guardado la información exitosamente!");
+                
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No es posible guardar la información");
+        }
+        
+    }
+    
 		
 }

@@ -17,6 +17,7 @@ import estructuras.NodoRelacion;
 import java.awt.HeadlessException;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import org.graphstream.ui.view.Viewer;
 /**
  *
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
@@ -30,6 +31,7 @@ public class Main_interface extends javax.swing.JFrame {
 	 * Creates new form FIle_Chooser
 	 */
 	public Main_interface(Modificar_interfaz v21) {
+//       this.LocationRelativeTo(true);
         initComponents();
 	}
 
@@ -176,7 +178,11 @@ public class Main_interface extends javax.swing.JFrame {
                     "    text-mode: normal; \n" +
                     "    text-size: 15px; \n" +
                     "}");
-            grafo.display();
+            
+            Viewer viewer = grafo.display();
+
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+            
         }else{
             JOptionPane.showMessageDialog(null,"No se ha cargado ningín archivo!");
         }

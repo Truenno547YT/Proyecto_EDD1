@@ -116,6 +116,23 @@ public class ListaUsuarios<T> {
             return (String)returnedNode.getData();
         }
     }
+    
+    public T getValor(int posicion){
+
+        if(posicion>=0 && posicion<size){
+            
+            if (posicion == 0) {
+                return pFirst.getData();
+            }else{
+                NodoUsuario aux = pFirst;
+                for (int i = 0; i < posicion; i++) {
+                    aux = aux.getPnext();
+                }
+                return (T) aux.getData();
+            }
+        }
+        return null;
+    }
 
 	
 }
