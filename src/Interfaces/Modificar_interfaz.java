@@ -61,6 +61,11 @@ public class Modificar_interfaz extends javax.swing.JFrame {
         });
 
         ElimnarUsuario.setText("Eliminar un usuario exitente");
+        ElimnarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ElimnarUsuarioActionPerformed(evt);
+            }
+        });
 
         Guardartxt.setText("Guardar cambio");
         Guardartxt.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +88,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Guardartxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -116,7 +121,9 @@ public class Modificar_interfaz extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +138,9 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
-        // TODO add your handling code here:
+        AgregarUsuario agregar = new AgregarUsuario(this);
+        agregar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
     private void GuardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardartxtActionPerformed
@@ -146,6 +155,12 @@ public class Modificar_interfaz extends javax.swing.JFrame {
         v1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
+
+    private void ElimnarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElimnarUsuarioActionPerformed
+        EliminarUsuario eliminar = new EliminarUsuario();
+        eliminar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ElimnarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
