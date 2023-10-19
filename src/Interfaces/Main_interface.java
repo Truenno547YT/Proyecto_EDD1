@@ -153,18 +153,24 @@ public class Main_interface extends javax.swing.JFrame {
                 String nodo1 = (String)pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String)pAux1.getData();
-                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2);
+                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2, true).addAttribute("ui.label", nodo2);
                 }
             }
-            grafo.setAttribute("ui.stylesheet", "node{\n" +
-                "    size: 30px, 30px;\n" +
-                "    fill-color: #000000;\n" +
-                "    text-mode: normal; \n" +
-                "    text-size: 15px; \n" +
-                "}");
 
-            Viewer viewer = grafo.display();
+	String styleSheet = "node{"
+                + "text-mode: normal; text-alignment: center;text-size: 15;"
+                + "size: 30px; fill-mode: plain; fill-color: pink;text-padding: 10;shape:circle;} "
+                + ""
+                + "edge{"
+                + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
 
+	grafo.setAttribute("ui.stylesheet", styleSheet);
+	System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+          	Viewer viewer = grafo.display();
+
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
         }else{
