@@ -35,7 +35,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
         Back = new javax.swing.JButton();
         UsuarioPrincipal = new javax.swing.JTextField();
         UsuarioRelaciones = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        Agregar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(188, 158, 218));
@@ -63,8 +64,17 @@ public class AgregarUsuario extends javax.swing.JFrame {
         jPanel2.add(UsuarioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 270, 50));
         jPanel2.add(UsuarioRelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (3).png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Agregar.setBackground(new java.awt.Color(255, 255, 204));
+        Agregar.setText("Agregar");
+        Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (3).png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,6 +112,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsuarioPrincipalActionPerformed
 
+    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -138,10 +152,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Agregar;
     private javax.swing.JButton Back;
     private javax.swing.JTextField UsuarioPrincipal;
     private javax.swing.JTextField UsuarioRelaciones;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
