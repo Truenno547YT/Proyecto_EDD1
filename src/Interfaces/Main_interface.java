@@ -168,7 +168,7 @@ public class Main_interface extends javax.swing.JFrame {
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
         }else{
-            JOptionPane.showMessageDialog(null,"No se ha cargado ningín archivo!");
+            JOptionPane.showMessageDialog(null,"No se ha cargado ningún archivo!");
         }
 
     }//GEN-LAST:event_VerGrafoActionPerformed
