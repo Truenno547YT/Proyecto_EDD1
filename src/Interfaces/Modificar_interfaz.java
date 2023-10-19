@@ -37,129 +37,93 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         AgregarUsuario = new javax.swing.JButton();
         ElimnarUsuario = new javax.swing.JButton();
         Guardartxt = new javax.swing.JButton();
         Back = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(188, 164, 211));
+        setMaximumSize(new java.awt.Dimension(550, 400));
+        setMinimumSize(new java.awt.Dimension(550, 400));
+        setPreferredSize(new java.awt.Dimension(550, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(181, 176, 193));
+        jPanel2.setVerifyInputWhenFocusTarget(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jLabel1.setText("¿Que deseas realizar?");
-
-        AgregarUsuario.setText("Agregar un usuario nuevo");
+        AgregarUsuario.setBackground(new java.awt.Color(255, 255, 204));
+        AgregarUsuario.setText("Agregar usuario ");
         AgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarUsuarioActionPerformed(evt);
             }
         });
+        jPanel2.add(AgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 130));
 
-        ElimnarUsuario.setText("Eliminar un usuario exitente");
+        ElimnarUsuario.setBackground(new java.awt.Color(255, 255, 204));
+        ElimnarUsuario.setText("Eliminar  usuario ");
         ElimnarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ElimnarUsuarioActionPerformed(evt);
             }
         });
+        jPanel2.add(ElimnarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, 130));
 
+        Guardartxt.setBackground(new java.awt.Color(255, 255, 204));
         Guardartxt.setText("Guardar cambio");
         Guardartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardartxtActionPerformed(evt);
             }
         });
+        jPanel2.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 130, 130));
 
+        Back.setBackground(new java.awt.Color(255, 255, 204));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
+        jPanel2.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 16, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(Back)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Guardartxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ElimnarUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                            .addComponent(AgregarUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(Back)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AgregarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addComponent(ElimnarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
-                .addComponent(Guardartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                .addGap(88, 88, 88))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (2.).png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 550, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 552, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
-        AgregarUsuario agregar = new AgregarUsuario(this);
-        agregar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_AgregarUsuarioActionPerformed
-
-    private void GuardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardartxtActionPerformed
-        
-        funciones.escribir_archivo();
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_GuardartxtActionPerformed
-
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Main_interface v1 = new Main_interface(this); 
+        Main_interface v1 = new Main_interface(this);
         v1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
+
+    private void GuardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardartxtActionPerformed
+
+        funciones.escribir_archivo();
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_GuardartxtActionPerformed
 
     private void ElimnarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElimnarUsuarioActionPerformed
         EliminarUsuario eliminar = new EliminarUsuario();
         eliminar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ElimnarUsuarioActionPerformed
+
+    private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
+        AgregarUsuario agregar = new AgregarUsuario(this);
+        agregar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +166,6 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     private javax.swing.JButton ElimnarUsuario;
     private javax.swing.JButton Guardartxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

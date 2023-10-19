@@ -56,6 +56,7 @@ public class Main_interface extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(181, 176, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        VerGrafo.setBackground(new java.awt.Color(255, 255, 204));
         VerGrafo.setText("Ver Grafo");
         VerGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +65,7 @@ public class Main_interface extends javax.swing.JFrame {
         });
         jPanel2.add(VerGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 350, 30));
 
+        leer_archivo.setBackground(new java.awt.Color(255, 255, 204));
         leer_archivo.setText("Cargar datos de usuarios");
         leer_archivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +74,7 @@ public class Main_interface extends javax.swing.JFrame {
         });
         jPanel2.add(leer_archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 350, 30));
 
+        modificar.setBackground(new java.awt.Color(255, 255, 204));
         modificar.setText("Modificar datos de usuario");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +83,7 @@ public class Main_interface extends javax.swing.JFrame {
         });
         jPanel2.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 350, 30));
 
+        componentes.setBackground(new java.awt.Color(255, 255, 204));
         componentes.setText("Componentes fuertemente conectados");
         componentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
