@@ -1,4 +1,5 @@
 package Funciones;
+import static Interfaces.Main_interface.grafo;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;  
@@ -82,7 +83,29 @@ public class funciones {
 		}
 	
 	}
-    
+
+    public static void invertir_relaciones(Graph grafo_invertido) {
+
+if(grafo_invertido.getNodeCount() == 0) {
+        if(!main.lista_usuarios.isEmpty()){
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+                grafo_invertido.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
+
+	    for(NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+	      String nodo2 = (String)pAux.getData();
+               		 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
+                    		String nodo1 = (String)pAux1.getData();
+                    		grafo_invertido.addEdge(nodo1+nodo2, nodo1, nodo2, true); 
+    		}
+	    
+    	}
+    }else{
+		grafo_invertido.clear();
+		invertir_relaciones(grafo_invertido);
+	}
+    }
+    }
     public static void escribir_archivo(){  
         
         String guardar = "usuarios\n";

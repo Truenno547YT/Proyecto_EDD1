@@ -18,6 +18,7 @@ import java.awt.HeadlessException;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.graphstream.ui.view.Viewer;
+import org.graphstream.algorithm.ConnectedComponents;
 /**
  *
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
@@ -27,6 +28,7 @@ public class Main_interface extends javax.swing.JFrame {
     public static Modificar_interfaz v2;
 
     public static Graph grafo = new SingleGraph("Red Social");
+    public static Graph grafo_invertido= new SingleGraph("Red Social - invertida");
 	/**
 	 * Creates new form FIle_Chooser
 	 */
@@ -153,10 +155,12 @@ public class Main_interface extends javax.swing.JFrame {
                 String nodo1 = (String)pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String)pAux1.getData();
-                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2, true).addAttribute("ui.label", nodo2);
+                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2, true);
                 }
             }
 
+
+	    
 	String styleSheet = "node{"
                 + "text-mode: normal; text-alignment: center;text-size: 15;"
                 + "size: 30px; fill-mode: plain; fill-color: pink;text-padding: 10;shape:circle;} "
@@ -168,7 +172,12 @@ public class Main_interface extends javax.swing.JFrame {
 	grafo.setAttribute("ui.stylesheet", styleSheet);
 	System.setProperty("org.graphstream.ui.renderer",
                 "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-          	Viewer viewer = grafo.display();
+
+		
+	
+	funciones.invertir_relaciones(grafo_invertido);
+	
+          	Viewer viewer = grafo_invertido.display();
 
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
@@ -176,7 +185,8 @@ public class Main_interface extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null,"No se ha cargado ningún archivo!");
         }
-
+		
+	
     }//GEN-LAST:event_VerGrafoActionPerformed
 
 	/**
