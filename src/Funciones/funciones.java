@@ -115,7 +115,6 @@ if(grafo_invertido.getNodeCount() == 0) {
 		    if (node == node_invertido) {
 			    invertir_relaciones(grafo_invertido);
 		    }else{
-			    System.out.println("chao");
 			    if (i <= grafo.getNodeCount()/3) {
 			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(0,100,255);");	    
 			    }else if (i <= grafo.getNodeCount()/2) {
@@ -126,7 +125,6 @@ if(grafo_invertido.getNodeCount() == 0) {
 			    }
 		    }
 
-		    System.out.println(node);
 		   
 	    }
 	    
