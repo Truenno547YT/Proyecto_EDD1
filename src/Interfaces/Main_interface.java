@@ -18,6 +18,7 @@ import java.awt.HeadlessException;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.graphstream.ui.view.Viewer;
+import org.graphstream.algorithm.ConnectedComponents;
 /**
  *
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
@@ -27,6 +28,7 @@ public class Main_interface extends javax.swing.JFrame {
     public static Modificar_interfaz v2;
 
     public static Graph grafo = new SingleGraph("Red Social");
+    public static Graph grafo_invertido= new SingleGraph("Red Social - invertida");
 	/**
 	 * Creates new form FIle_Chooser
 	 */
@@ -153,24 +155,40 @@ public class Main_interface extends javax.swing.JFrame {
                 String nodo1 = (String)pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String)pAux1.getData();
-                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2);
+                    grafo.addEdge(nodo1+nodo2, nodo1, nodo2, true);
                 }
             }
-            grafo.setAttribute("ui.stylesheet", "node{\n" +
-                "    size: 30px, 30px;\n" +
-                "    fill-color: #000000;\n" +
-                "    text-mode: normal; \n" +
-                "    text-size: 15px; \n" +
-                "}");
 
-            Viewer viewer = grafo.display();
 
+	    
+	String styleSheet = "node{"
+                + "text-mode: normal; text-alignment: center;text-size: 15;"
+                + "size: 30px; text-padding: 10;shape:circle;} "
+                + ""
+                + "edge{"
+                + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
+
+	grafo.setAttribute("ui.stylesheet", styleSheet);
+	System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+
+		
+	
+	funciones.invertir_relaciones(grafo_invertido);
+	funciones.kosaraju(grafo, grafo_invertido);
+		
+	
+          	Viewer viewer = grafo.display();
+
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
         }else{
             JOptionPane.showMessageDialog(null,"No se ha cargado ningún archivo!");
         }
-
+		
+	
     }//GEN-LAST:event_VerGrafoActionPerformed
 
 	/**
