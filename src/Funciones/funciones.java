@@ -106,6 +106,33 @@ if(grafo_invertido.getNodeCount() == 0) {
 	}
     }
     }
+
+    public static void kosaraju(Graph grafo, Graph grafo_invertido){
+
+	    for (int i = 0; i < grafo.getNodeCount(); i++) {
+		   Node node = grafo.getEdge(i).getNode0();
+		   Node node_invertido = grafo_invertido.getEdge(i).getNode1();
+		    if (node == node_invertido) {
+			    invertir_relaciones(grafo_invertido);
+		    }else{
+			    System.out.println("chao");
+			    if (i <= grafo.getNodeCount()/3) {
+			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(0,100,255);");	    
+			    }else if (i <= grafo.getNodeCount()/2) {
+			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(56,213,005);");	    
+			    }else{
+			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(89,23,156);");	    
+
+			    }
+		    }
+
+		    System.out.println(node);
+		   
+	    }
+	    
+    }
+
+
     public static void escribir_archivo(){  
         
         String guardar = "usuarios\n";

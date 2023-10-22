@@ -163,7 +163,7 @@ public class Main_interface extends javax.swing.JFrame {
 	    
 	String styleSheet = "node{"
                 + "text-mode: normal; text-alignment: center;text-size: 15;"
-                + "size: 30px; fill-mode: plain; fill-color: pink;text-padding: 10;shape:circle;} "
+                + "size: 30px; text-padding: 10;shape:circle;} "
                 + ""
                 + "edge{"
                 + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
@@ -176,8 +176,10 @@ public class Main_interface extends javax.swing.JFrame {
 		
 	
 	funciones.invertir_relaciones(grafo_invertido);
+	funciones.kosaraju(grafo, grafo_invertido);
+		
 	
-          	Viewer viewer = grafo_invertido.display();
+          	Viewer viewer = grafo.display();
 
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
