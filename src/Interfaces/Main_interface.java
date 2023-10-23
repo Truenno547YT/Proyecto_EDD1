@@ -113,6 +113,12 @@ public class Main_interface extends javax.swing.JFrame {
 
     private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
         // TODO add your handling code here:
+        funciones.invertir_relaciones(grafo_invertido);
+	funciones.kosaraju(grafo, grafo_invertido);
+       	Viewer viewer = grafo.display();
+
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_componentesActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
@@ -163,7 +169,7 @@ public class Main_interface extends javax.swing.JFrame {
 	    
 	String styleSheet = "node{"
                 + "text-mode: normal; text-alignment: center;text-size: 15;"
-                + "size: 30px; text-padding: 10;shape:circle;} "
+                + "size: 30px; text-padding: 10;shape:circle; fill-color:#345234;} "
                 + ""
                 + "edge{"
                 + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
@@ -175,8 +181,7 @@ public class Main_interface extends javax.swing.JFrame {
 
 		
 	
-	funciones.invertir_relaciones(grafo_invertido);
-	funciones.kosaraju(grafo, grafo_invertido);
+	
 		
 	
           	Viewer viewer = grafo.display();
