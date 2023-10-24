@@ -86,25 +86,6 @@ public class funciones {
 
     public static void invertir_relaciones(ListaUsuarios lista_usuariosInvertidos) {
 
-<<<<<<< HEAD
-        if(grafo_invertido.getNodeCount() == 0) {
-            if(!main.lista_usuarios.isEmpty()){
-                for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
-                    grafo_invertido.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-                }
-
-	    for(NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-	      String nodo2 = (String)pAux.getData();
-               		 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
-                    	String nodo1 = (String)pAux1.getData();
-                    	grafo_invertido.addEdge(nodo1+nodo2, nodo1, nodo2, true); 
-                    }
-	    
-    	}
-            }else{
-                grafo_invertido.clear();
-                invertir_relaciones(grafo_invertido);
-=======
 	    main.lista_usuarios.print();
 	    System.out.println("-------------");
 if(lista_usuariosInvertidos.getSize()== 0) {
@@ -116,7 +97,6 @@ if(lista_usuariosInvertidos.getSize()== 0) {
 	for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
 		    ListaRelaciones lista_relacion = new ListaRelaciones<NodoRelacion>();
 		    pAux.setAdyList(lista_relacion);
->>>>>>> a170daed5f96799c96bf6df8d334441d84b8cf0f
 	}
 
 	    for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
@@ -142,27 +122,6 @@ if(lista_usuariosInvertidos.getSize()== 0) {
 	lista_usuariosInvertidos.print();
     }
 
-    public static void kosaraju(Graph grafo, Graph grafo_invertido){
-
-	    for (int i = 0; i < grafo.getNodeCount(); i++) {
-		   Node node = grafo.getEdge(i).getNode0();
-		   Node node_invertido = grafo_invertido.getEdge(i).getNode1();
-		    if (node == node_invertido) {
-			    invertir_relaciones(grafo_invertido);
-		    }else{
-			    if (i <= grafo.getNodeCount()/3) {
-			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(0,100,255);");	    
-			    }else if (i <= grafo.getNodeCount()/2) {
-			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(56,213,005);");	    
-			    }else{
-			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(89,23,156);");	    
-			    }
-		    }
-
-		   
-	    }
-	    
-    }
 
 
     public static void escribir_archivo(){  

@@ -114,21 +114,12 @@ public class Main_interface extends javax.swing.JFrame {
 
     private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-        funciones.invertir_relaciones(grafo_invertido);
-        funciones.kosaraju(grafo, grafo_invertido);
-       	Viewer viewer = grafo.display();
-
-        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-=======
 	ListaUsuarios lista_usuariosInvertidos = new ListaUsuarios<NodoUsuario>(); 
         	funciones.invertir_relaciones(lista_usuariosInvertidos);
        	//Viewer viewer = grafo.display();
 
 //            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
   //          viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
->>>>>>> a170daed5f96799c96bf6df8d334441d84b8cf0f
     }//GEN-LAST:event_componentesActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
