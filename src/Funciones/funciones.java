@@ -102,8 +102,6 @@ if(lista_usuariosInvertidos.getSize()== 0) {
 	    for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
 			   for (NodoUsuario pAux1 =main.lista_usuarios.getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
 			    	for(NodoRelacion pAux2 = pAux1.getAdyList().getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()){
-					System.out.println(pAux.getData().toString());	
-					System.out.println(pAux2.getData().toString());	
 		    			if (pAux.getData().toString().equalsIgnoreCase(pAux2.getData().toString())){
 						pAux.getAdyList().InsertLast(pAux1.getData().toString());
 				}else {
