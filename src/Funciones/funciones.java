@@ -84,8 +84,9 @@ public class funciones {
 	
 	}
 
-    public static void invertir_relaciones(Graph grafo_invertido) {
+    public static void invertir_relaciones(ListaUsuarios lista_usuariosInvertidos) {
 
+<<<<<<< HEAD
         if(grafo_invertido.getNodeCount() == 0) {
             if(!main.lista_usuarios.isEmpty()){
                 for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
@@ -103,8 +104,42 @@ public class funciones {
             }else{
                 grafo_invertido.clear();
                 invertir_relaciones(grafo_invertido);
+=======
+	    main.lista_usuarios.print();
+	    System.out.println("-------------");
+if(lista_usuariosInvertidos.getSize()== 0) {
+        if(!main.lista_usuarios.isEmpty()){
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+		    String usuario = pAux.getData().toString();
+		    lista_usuariosInvertidos.InsertLast(usuario);
+            }
+	for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+		    ListaRelaciones lista_relacion = new ListaRelaciones<NodoRelacion>();
+		    pAux.setAdyList(lista_relacion);
+>>>>>>> a170daed5f96799c96bf6df8d334441d84b8cf0f
 	}
+
+	    for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+			   for (NodoUsuario pAux1 =main.lista_usuarios.getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+			    	for(NodoRelacion pAux2 = pAux1.getAdyList().getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()){
+					System.out.println(pAux.getData().toString());	
+					System.out.println(pAux2.getData().toString());	
+		    			if (pAux.getData().toString().equalsIgnoreCase(pAux2.getData().toString())){
+						pAux.getAdyList().InsertLast(pAux1.getData().toString());
+				}else {
+						
+					}
+			}		
+		    }
+	    } 
+	
     }
+    }else{
+		lista_usuariosInvertidos.resetList();
+		invertir_relaciones(lista_usuariosInvertidos);
+	}
+    
+	lista_usuariosInvertidos.print();
     }
 
     public static void kosaraju(Graph grafo, Graph grafo_invertido){
