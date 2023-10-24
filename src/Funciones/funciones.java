@@ -86,23 +86,23 @@ public class funciones {
 
     public static void invertir_relaciones(Graph grafo_invertido) {
 
-if(grafo_invertido.getNodeCount() == 0) {
-        if(!main.lista_usuarios.isEmpty()){
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
-                grafo_invertido.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-            }
+        if(grafo_invertido.getNodeCount() == 0) {
+            if(!main.lista_usuarios.isEmpty()){
+                for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+                    grafo_invertido.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+                }
 
 	    for(NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
 	      String nodo2 = (String)pAux.getData();
                		 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null ; pAux1 = pAux1.getPnext()) {
-                    		String nodo1 = (String)pAux1.getData();
-                    		grafo_invertido.addEdge(nodo1+nodo2, nodo1, nodo2, true); 
-    		}
+                    	String nodo1 = (String)pAux1.getData();
+                    	grafo_invertido.addEdge(nodo1+nodo2, nodo1, nodo2, true); 
+                    }
 	    
     	}
-    }else{
-		grafo_invertido.clear();
-		invertir_relaciones(grafo_invertido);
+            }else{
+                grafo_invertido.clear();
+                invertir_relaciones(grafo_invertido);
 	}
     }
     }
@@ -121,7 +121,6 @@ if(grafo_invertido.getNodeCount() == 0) {
 			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(56,213,005);");	    
 			    }else{
 			    grafo.getNode(i).setAttribute("ui.style", "fill-color: rgb(89,23,156);");	    
-
 			    }
 		    }
 
