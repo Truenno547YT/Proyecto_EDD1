@@ -18,6 +18,7 @@ import java.awt.HeadlessException;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.graphstream.ui.view.Viewer;
+import estructuras.ListaUsuarios;
 import org.graphstream.algorithm.ConnectedComponents;
 /**
  *
@@ -113,12 +114,12 @@ public class Main_interface extends javax.swing.JFrame {
 
     private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
         // TODO add your handling code here:
-        funciones.invertir_relaciones(grafo_invertido);
-	funciones.kosaraju(grafo, grafo_invertido);
-       	Viewer viewer = grafo.display();
+	ListaUsuarios lista_usuariosInvertidos = new ListaUsuarios<NodoUsuario>(); 
+        	funciones.invertir_relaciones(lista_usuariosInvertidos);
+       	//Viewer viewer = grafo.display();
 
-            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+//            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+  //          viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_componentesActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed

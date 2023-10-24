@@ -134,5 +134,10 @@ public class ListaUsuarios<T> {
         return null;
     }
 
+	public void resetList() {
+		this.pFirst = null;
+		this.pLast = null;
+		this.size = 0; 
+	}
 	
 }

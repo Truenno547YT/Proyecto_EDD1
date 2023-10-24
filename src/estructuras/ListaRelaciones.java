@@ -83,11 +83,17 @@ public class ListaRelaciones<T> {
 		NodoRelacion pAux = this.getpFirst();
         String list = "";
 		while (pAux != null) {
-			list = list + " - " + (String)pAux.getData();
+			list = list + " - " + pAux.getData().toString();
 			pAux = pAux.getPnext();
 		}
         
         return list;
+	}
+	
+	public void resetList() {
+		this.pFirst = null;
+		this.pLast = null;
+		this.size = 0; 
 	}
 
 }
