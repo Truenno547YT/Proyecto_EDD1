@@ -13,13 +13,12 @@ usuarios
 @cipriano
 @newageforever
 relaciones
-<<<<<<< HEAD
 @pepe, @mazinger
 @mazinger, @juanc
 @mazinger, @tuqui33
-@juanc, @sancho23
-@xoxojaime, @pepe
 @tuqui33, @xoxojaime
+@xoxojaime, @pepe
+@juanc, @sancho23
 @sancho23, @mazinger
 @sancho23, @terciopelo
 @terciopelo, @juanc
@@ -27,28 +26,11 @@ relaciones
 @terciopelo, @caribedoble
 @caribedoble, @africa
 @africa, @cipriano
+@cipriano, @totalfree
+@cipriano, @radiogaga
 @totalfree, @africa
 @totalfree, @radiogaga
 @radiogaga, @caribedoble
-@cipriano, @totalfree
-@cipriano, @radiogaga
-=======
-@pepe,@mazinger
-@mazinger,@juanc
-@mazinger,@tuqui33
-@juanc,@sancho23
-@xoxojaime,@pepe
-@tuqui33,@xoxojaime
-@sancho23,@mazinger
-@sancho23,@terciopelo
-@terciopelo,@juanc
-@terciopelo,@newageforever
-@terciopelo,@caribedoble
-@caribedoble,@africa
-@africa,@cipriano
-@totalfree,@africa
-@totalfree,@radiogaga
-@radiogaga,@caribedoble
-@cipriano,@totalfree
-@cipriano,@radiogaga
->>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
+
+
+

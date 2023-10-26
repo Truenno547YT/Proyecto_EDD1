@@ -79,12 +79,10 @@ public class ListaRelaciones<T> {
     public String print() {
         NodoRelacion pAux = this.getpFirst();
         String list = "";
-<<<<<<< HEAD
         while (pAux != null) {
             list = list + " - " + (String) pAux.getData();
             pAux = pAux.getPnext();
         }
-=======
 		while (pAux != null) {
 			list = list + " - " + pAux.getData().toString();
 			pAux = pAux.getPnext();
@@ -93,15 +91,12 @@ public class ListaRelaciones<T> {
         return list;
 	}
 	
-	public void resetList() {
+public void resetList() {
 		this.pFirst = null;
 		this.pLast = null;
 		this.size = 0; 
 	}
->>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
 
-        return list;
-    }
 
     public void EliminarPorReferenciaRelacion(T referencia) {
         if (buscar(referencia)) {

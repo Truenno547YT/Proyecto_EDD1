@@ -130,7 +130,6 @@ public class ListaUsuarios<T> {
         return null;
     }
 
-<<<<<<< HEAD
     public void EliminarPorReferencia(T referencia) {
         if (buscar(referencia)) {
             if (this.pFirst.getData().equals(referencia)) {
@@ -161,12 +160,10 @@ public class ListaUsuarios<T> {
         return encontrado;
 
     }
-=======
-	public void resetList() {
-		this.pFirst = null;
-		this.pLast = null;
-		this.size = 0; 
+public void resetList() {
+	this.pFirst = null;
+	this.pLast = null;
+	this.size = 0; 
 	}
 	
->>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
 }

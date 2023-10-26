@@ -83,54 +83,7 @@ public class funciones {
 
     public static void invertir_relaciones(ListaUsuarios lista_usuariosInvertidos) {
 
-<<<<<<< HEAD
-        if (grafo_invertido.getNodeCount() == 0) {
-            if (!main.lista_usuarios.isEmpty()) {
-                for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                    grafo_invertido.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-                }
-
-                for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                    String nodo2 = (String) pAux.getData();
-                    for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
-                        String nodo1 = (String) pAux1.getData();
-                        grafo_invertido.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-                    }
-
-                }
-            } else {
-                grafo_invertido.clear();
-                invertir_relaciones(grafo_invertido);
-            }
-        }
-    }
-
-    public static void escribir_archivo() {
-
-        String guardar = "usuarios\n";
-
-        if (!main.lista_usuarios.isEmpty()) {
-
-            NodoUsuario pAux = main.lista_usuarios.getpFirst();
-
-            for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
-                guardar += pAux.getData() + "\n";
-                pAux = pAux.getPnext();
-            }
-
-            guardar += "relaciones\n";
-
-            pAux = main.lista_usuarios.getpFirst();
-
-            for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
-                String name = (String) pAux.getData();
-                NodoRelacion adyacente = pAux.getAdyList().getpFirst();
-
-                for (int j = 0; j < pAux.getAdyList().getSize(); j++) {
-                    guardar = guardar + name + ", " + adyacente.getData() + "\n";
-                    adyacente = adyacente.getPnext();
-=======
-	    main.lista_usuarios.print();
+	     main.lista_usuarios.print();
 	    System.out.println("-------------");
 if(lista_usuariosInvertidos.getSize()== 0) {
         if(!main.lista_usuarios.isEmpty()){
@@ -164,9 +117,7 @@ if(lista_usuariosInvertidos.getSize()== 0) {
 	lista_usuariosInvertidos.print();
     }
 
-
-
-    public static void escribir_archivo(){  
+ public static void escribir_archivo(){  
         
         String guardar = "usuarios\n";
         
@@ -177,26 +128,43 @@ if(lista_usuariosInvertidos.getSize()== 0) {
                 for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
                     guardar += pAux.getData() + "\n";
                     pAux = pAux.getPnext();
->>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
                 }
-                pAux = pAux.getPnext();
+        
+                guardar += "relaciones\n";
+        
+                pAux =  main.lista_usuarios.getpFirst();
+        
+                for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+                    String name = (String) pAux.getData();
+                    NodoRelacion adyacente = pAux.getAdyList().getpFirst();
+            
+                    for (int j = 0; j < pAux.getAdyList().getSize() ; j++) {
+                        guardar = guardar + name + "," + adyacente.getData()+ "\n";
+                        adyacente = adyacente.getPnext();
+                    }
+                    pAux = pAux.getPnext();
+                }
+        
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "No hay información para actualizar");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay información para actualizar");
-        }
-
-        try {
-            PrintWriter pw = new PrintWriter("test\\datos.txt");
-            pw.print(guardar);
-            pw.close();
-            JOptionPane.showMessageDialog(null, "Se ha guardado la información exitosamente!");
-
-        } catch (Exception e) {
+            
+        try{
+                PrintWriter pw = new PrintWriter("test\\datos.txt");
+                pw.print(guardar);
+                pw.close();
+                JOptionPane.showMessageDialog(null, "Se ha guardado la información exitosamente!");
+                
+            
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No es posible guardar la información");
         }
-
+        
     }
+    
+
+
 
     public static void AgregarNuevo(String usuario_nuevo, String relacion) {
 
