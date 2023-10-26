@@ -12,6 +12,7 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/estructuras/NodoUsuario.java</file>
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/Interfaces/EliminarUsuario.java</file>
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/estructuras/ListaUsuarios.java</file>
@@ -21,6 +22,11 @@
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/Funciones/funciones.java</file>
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/Interfaces/AgregarUsuario.java</file>
             <file>file:/C:/Users/luisr/Proyecto_EDD1/src/Interfaces/Main_interface.java</file>
+=======
+            <file>file:/C:/Users/Ana%20Blanco/Documents/unimet/2324-1/Estructura%20de%20datos/Proyecto_EDD1/src/Interfaces/Main_interface.java</file>
+            <file>file:/C:/Users/Ana%20Blanco/Documents/unimet/2324-1/Estructura%20de%20datos/Proyecto_EDD1/src/Funciones/funciones.java</file>
+            <file>file:/C:/Users/Ana%20Blanco/Documents/unimet/2324-1/Estructura%20de%20datos/Proyecto_EDD1/src/Main/main.java</file>
+>>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
         </group>
     </open-files>
 </project-private>

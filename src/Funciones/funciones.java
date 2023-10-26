@@ -81,8 +81,9 @@ public class funciones {
 
     }
 
-    public static void invertir_relaciones(Graph grafo_invertido) {
+    public static void invertir_relaciones(ListaUsuarios lista_usuariosInvertidos) {
 
+<<<<<<< HEAD
         if (grafo_invertido.getNodeCount() == 0) {
             if (!main.lista_usuarios.isEmpty()) {
                 for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
@@ -128,6 +129,55 @@ public class funciones {
                 for (int j = 0; j < pAux.getAdyList().getSize(); j++) {
                     guardar = guardar + name + ", " + adyacente.getData() + "\n";
                     adyacente = adyacente.getPnext();
+=======
+	    main.lista_usuarios.print();
+	    System.out.println("-------------");
+if(lista_usuariosInvertidos.getSize()== 0) {
+        if(!main.lista_usuarios.isEmpty()){
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst() ; pAux !=null; pAux = pAux.getPnext() ) {
+		    String usuario = pAux.getData().toString();
+		    lista_usuariosInvertidos.InsertLast(usuario);
+            }
+	for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+		    ListaRelaciones lista_relacion = new ListaRelaciones<NodoRelacion>();
+		    pAux.setAdyList(lista_relacion);
+	}
+
+	    for(NodoUsuario pAux = lista_usuariosInvertidos.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+			   for (NodoUsuario pAux1 =main.lista_usuarios.getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+			    	for(NodoRelacion pAux2 = pAux1.getAdyList().getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()){
+		    			if (pAux.getData().toString().equalsIgnoreCase(pAux2.getData().toString())){
+						pAux.getAdyList().InsertLast(pAux1.getData().toString());
+				}else {
+						
+					}
+			}		
+		    }
+	    } 
+	
+    }
+    }else{
+		lista_usuariosInvertidos.resetList();
+		invertir_relaciones(lista_usuariosInvertidos);
+	}
+    
+	lista_usuariosInvertidos.print();
+    }
+
+
+
+    public static void escribir_archivo(){  
+        
+        String guardar = "usuarios\n";
+        
+            if(!main.lista_usuarios.isEmpty()){
+                
+                NodoUsuario pAux = main.lista_usuarios.getpFirst();
+        
+                for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+                    guardar += pAux.getData() + "\n";
+                    pAux = pAux.getPnext();
+>>>>>>> 44b86f898bca49c21b3cdbea2e1c6c0024ad728f
                 }
                 pAux = pAux.getPnext();
             }
