@@ -9,7 +9,7 @@ package estructuras;
  * @author Ana Blanco, Andrés Dias y Luis Rivera.
  */
 public class NodoRelacion<T> {
-    
+
     private T data;
     private NodoRelacion pnext;
 
@@ -17,9 +17,8 @@ public class NodoRelacion<T> {
         this.data = data;
         this.pnext = null;
     }
-    
-    //Getters and Setters
 
+    //Getters and Setters
     public T getData() {
         return data;
     }
@@ -35,6 +34,5 @@ public class NodoRelacion<T> {
     public void setPnext(NodoRelacion pnext) {
         this.pnext = pnext;
     }
-    
-    
+
 }

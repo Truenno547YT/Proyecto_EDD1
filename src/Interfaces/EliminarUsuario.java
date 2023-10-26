@@ -4,11 +4,21 @@
  */
 package Interfaces;
 
+import Funciones.funciones;
+import Main.main;
+import estructuras.NodoUsuario;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ana Blanco
  */
 public class EliminarUsuario extends javax.swing.JFrame {
+
+    public EliminarUsuario(JComboBox<String> ComboBox) {
+
+    }
 
     /**
      * Creates new form EliminarUsuario
@@ -16,6 +26,12 @@ public class EliminarUsuario extends javax.swing.JFrame {
     public EliminarUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        NodoUsuario aux = main.lista_usuarios.getpFirst();
+        for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+            ComboBox.addItem(aux.getData().toString());
+            aux = aux.getPnext();
+
+        }
     }
 
     /**
@@ -46,10 +62,19 @@ public class EliminarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxActionPerformed(evt);
+            }
+        });
         jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 210, -1));
 
         Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (4).png"))); // NOI18N
@@ -74,6 +99,20 @@ public class EliminarUsuario extends javax.swing.JFrame {
         v2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
+
+    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_ComboBoxActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "El susuario: " + ComboBox.getSelectedItem().toString() + ", sera eliminado");
+        String usuario = ComboBox.getSelectedItem().toString();
+        funciones.EliminarUsuario(usuario);
+
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments

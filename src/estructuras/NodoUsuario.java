@@ -13,8 +13,8 @@ public class NodoUsuario<T> {
     private T data;
     private NodoUsuario pnext;
     private ListaRelaciones AdyList;
-    
-    public NodoUsuario(T data){
+
+    public NodoUsuario(T data) {
         this.data = data;
         this.pnext = null;
         this.AdyList = null;
@@ -22,19 +22,19 @@ public class NodoUsuario<T> {
     // Getters and Setters
 
     public T getData() {
-	return data;
+        return data;
     }
 
     public void setData(T data) {
-	this.data = data;
+        this.data = data;
     }
 
     public NodoUsuario getPnext() {
-	return pnext;
+        return pnext;
     }
 
     public void setPnext(NodoUsuario pnext) {
-	this.pnext = pnext;
+        this.pnext = pnext;
     }
 
     public ListaRelaciones getAdyList() {
@@ -44,5 +44,5 @@ public class NodoUsuario<T> {
     public void setAdyList(ListaRelaciones AdyList) {
         this.AdyList = AdyList;
     }
-       	
+
 }

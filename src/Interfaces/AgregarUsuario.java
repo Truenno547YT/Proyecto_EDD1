@@ -4,8 +4,10 @@
  */
 package Interfaces;
 
+import Funciones.funciones;
 import static Interfaces.Main_interface.v2;
-
+import Main.main;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,6 +64,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(UsuarioPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 270, 50));
+
+        UsuarioRelaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioRelacionesActionPerformed(evt);
+            }
+        });
         jPanel2.add(UsuarioRelaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
 
         Agregar.setBackground(new java.awt.Color(255, 255, 204));
@@ -102,7 +110,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Modificar_interfaz v2 = new Modificar_interfaz(); 
+        Modificar_interfaz v2 = new Modificar_interfaz();
         v2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
@@ -110,16 +118,42 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private void UsuarioPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioPrincipalActionPerformed
 
         // TODO add your handling code here:
+
     }//GEN-LAST:event_UsuarioPrincipalActionPerformed
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         // TODO add your handling code here:
+        String usuario_nuevo = UsuarioPrincipal.getText().toLowerCase();
+        if (usuario_nuevo.charAt(0) != '@') {
+            usuario_nuevo = "@" + usuario_nuevo;
+        }
+        System.out.println(usuario_nuevo);
+        String relacion = UsuarioRelaciones.getText().toLowerCase();
+        String relacion2 = "";
+        for (int i = 0; i < relacion.split(",").length; i++) {
+            if (relacion.split(",")[i].charAt(0) != '@') {
+                relacion.split(",")[i] += "@" + relacion.split(",")[i];
+                relacion2 += "@" + relacion.split(",")[i] + ",";
+
+            }
+
+        }
+        System.out.println(relacion2);
+        System.out.println(relacion);
+        funciones.AgregarNuevo(usuario_nuevo, relacion);
+
+
     }//GEN-LAST:event_AgregarActionPerformed
+
+    private void UsuarioRelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioRelacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioRelacionesActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
