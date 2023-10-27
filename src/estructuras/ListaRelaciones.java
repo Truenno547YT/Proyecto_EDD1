@@ -9,108 +9,104 @@ package estructuras;
  * @author Ana Blanco, Andrés Diaz, Luis Rivera.
  */
 public class ListaRelaciones<T> {
-    
+
     private NodoRelacion<T> pFirst;
-	private NodoRelacion<T> pLast;
-	private int size;
-        
-        //Constructor
-	public ListaRelaciones() {
-		this.pFirst = null;
-		this.pLast = null;
-		this.size = 0;
-	}
-        
-        //Getters and Setters
+    private NodoRelacion<T> pLast;
+    private int size;
 
-	public NodoRelacion<T> getpFirst() {
-		return pFirst;
-	}
+    //Constructor
+    public ListaRelaciones() {
+        this.pFirst = null;
+        this.pLast = null;
+        this.size = 0;
+    }
 
-	public void setpFirst(NodoRelacion<T> pFirst) {
-		this.pFirst = pFirst;
-	}
+    //Getters and Setters
+    public NodoRelacion<T> getpFirst() {
+        return pFirst;
+    }
 
-	public NodoRelacion<T> getpLast() {
-		return pLast;
-	}
+    public void setpFirst(NodoRelacion<T> pFirst) {
+        this.pFirst = pFirst;
+    }
 
-	public void setpLast(NodoRelacion<T> pLast) {
-		this.pLast = pLast;
-	}
+    public NodoRelacion<T> getpLast() {
+        return pLast;
+    }
 
-	public int getSize() {
-		return size;
-	}
+    public void setpLast(NodoRelacion<T> pLast) {
+        this.pLast = pLast;
+    }
 
-	public void setSize(int size) {
-		this.size = size;
-	}
+    public int getSize() {
+        return size;
+    }
 
-	
-        // FUNCIONES DE LA LISTA
-	public boolean isEmpty() {
-		return this.pFirst == null;
-	}
+    public void setSize(int size) {
+        this.size = size;
+    }
 
-	public void InsertBegin(T data) {
-		NodoRelacion nodo = new NodoRelacion(data);
-                
-		if (isEmpty()) {
-			this.setpFirst(nodo);
-			this.setpLast(nodo);
-		} else {
-			nodo.setPnext(this.getpFirst());
-			this.setpFirst(nodo);
-		}
-		size++;
-	}
+    // FUNCIONES DE LA LISTA
+    public boolean isEmpty() {
+        return this.pFirst == null;
+    }
 
+    public void InsertBegin(T data) {
+        NodoRelacion nodo = new NodoRelacion(data);
 
-	public void InsertLast(T data) {
-		NodoRelacion nodo = new NodoRelacion(data);
-		if (isEmpty()) {
-			this.setpFirst(nodo);
-			this.setpLast(nodo);
-		} else {
-			this.pLast.setPnext(nodo);
-			this.pLast = nodo;
-		}
-		this.size++;
-	}
+        if (isEmpty()) {
+            this.setpFirst(nodo);
+            this.setpLast(nodo);
+        } else {
+            nodo.setPnext(this.getpFirst());
+            this.setpFirst(nodo);
+        }
+        size++;
+    }
 
-	public String print() {
-		NodoRelacion pAux = this.getpFirst();
+    public void InsertLast(T data) {
+        NodoRelacion nodo = new NodoRelacion(data);
+        if (isEmpty()) {
+            this.setpFirst(nodo);
+            this.setpLast(nodo);
+        } else {
+            this.pLast.setPnext(nodo);
+            this.pLast = nodo;
+        }
+        this.size++;
+    }
+
+    public String print() {
+        NodoRelacion pAux = this.getpFirst();
         String list = "";
-		while (pAux != null) {
-			list = list + " - " + pAux.getData().toString();
-			pAux = pAux.getPnext();
-		}
-        
+        while (pAux != null) {
+            list = list + " - " + pAux.getData().toString();
+            pAux = pAux.getPnext();
+        }
+
         return list;
-	}
-    
-    
-    public boolean contains(String usuario){
-        
+    }
+
+    public boolean contains(String usuario) {
+
         boolean retorno = false;
-        for (NodoRelacion pAux = this.getpFirst(); pAux!= null; pAux = pAux.getPnext()) {
-            if(usuario.equals(pAux.getData())){
+        for (NodoRelacion pAux = this.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+            if (usuario.equals(pAux.getData())) {
                 retorno = true;
                 return retorno;
             }
         }
-        
+
         return retorno;
     }
-	
-	public void resetList() {
-		this.pFirst = null;
-		this.pLast = null;
-		this.size = 0; 
-	}
 
-public boolean buscar(T referencia) {
+    public void resetList() {
+        this.pFirst = null;
+        this.pLast = null;
+        this.size = 0;
+    }
+
+    public boolean buscar(T referencia) {
         NodoRelacion aux = this.pFirst;
         boolean encontrado = false;
         while (aux != null && encontrado != true) {
@@ -123,8 +119,8 @@ public boolean buscar(T referencia) {
         return encontrado;
 
     }
-	
-public void EliminarPorReferenciaRelacion(T referencia) {
+
+    public void EliminarPorReferenciaRelacion(T referencia) {
         if (buscar(referencia)) {
             if (this.pFirst.getData().equals(referencia)) {
                 this.pFirst = this.pFirst.getPnext();

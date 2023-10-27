@@ -31,7 +31,8 @@ import java.util.Random;
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class Main_interface extends javax.swing.JFrame {
-Graph grafo = new SingleGraph("Red Social");
+
+    Graph grafo = new SingleGraph("Red Social");
 
     public static Modificar_interfaz v2;
 
@@ -118,46 +119,54 @@ Graph grafo = new SingleGraph("Red Social");
     }// </editor-fold>//GEN-END:initComponents
 
     private void componentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_componentesActionPerformed
-        /***
-         *Descripción: Acá se genera una lista con los componenetes fuertemente conectados
-         * y se muestran por medio de la librería.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
+        /**
+         * *
+         * Descripción: Acá se genera una lista con los componenetes fuertemente
+         * conectados y se muestran por medio de la librería.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         // TODO add your handling code here:
+        try {
+            ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
 
-        ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
-
-        for (NodoRelacion pAux = totalscc.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-            System.out.println("\nComponente: ");
-            String comp = "";
-            ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
-            Random random = new Random();
-            int nextInt = random.nextInt(0xffffff + 1);    
-            String colorCode = String.format("#%06x", nextInt);
-            String random_color = colorCode;
-            for (NodoRelacion pAux2 = pAuxreal.getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()) {
-                comp = pAux2.getData().toString();
-	grafo.getNode(comp).setAttribute("ui.style", "fill-color: " + colorCode + ";");
+            for (NodoRelacion pAux = totalscc.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                System.out.println("\nComponente: ");
+                String comp = "";
+                ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
+                Random random = new Random();
+                int nextInt = random.nextInt(0xffffff + 1);
+                String colorCode = String.format("#%06x", nextInt);
+                String random_color = colorCode;
+                for (NodoRelacion pAux2 = pAuxreal.getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()) {
+                    comp = pAux2.getData().toString();
+                    grafo.getNode(comp).setAttribute("ui.style", "fill-color: " + colorCode + ";");
+                }
+                System.out.println(comp); //ESTO ES SOLO PARA IMPRIMIR Y VER LA ESTRUCTURA DE LA LISTA
             }
-            System.out.println(comp); //ESTO ES SOLO PARA IMPRIMIR Y VER LA ESTRUCTURA DE LA LISTA
+
+            //AQUI HAY QUE COLOREAR LOS GRAFOS CON LA LIBRERÍA
+            Viewer viewer = grafo.display();
+
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "La base de datos está vacía, tienes que cargar la información primero");
         }
-	
-        //AQUI HAY QUE COLOREAR LOS GRAFOS CON LA LIBRERÍA
-
-       	Viewer viewer = grafo.display(); 
-
-           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_componentesActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        /***
-         *Descripción: Acá se da acceso a la nueva interfaz donde están las opciones
-         * de eliminar, agregar y guardar cambios.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
+        /**
+         * *
+         * Descripción: Acá se da acceso a la nueva interfaz donde están las
+         * opciones de eliminar, agregar y guardar cambios.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         Modificar_interfaz v2 = new Modificar_interfaz();
         v2.setVisible(true);
         this.setVisible(false);

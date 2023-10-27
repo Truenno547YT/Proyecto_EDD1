@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
+
 import estructuras.*;
 import Funciones.funciones;
 import Main.main;
 import javax.swing.*;
 
 import static Interfaces.Main_interface.v2;
-
 
 /**
  *
@@ -106,7 +106,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Modificar_interfaz v2 = new Modificar_interfaz(); 
+        Modificar_interfaz v2 = new Modificar_interfaz();
         v2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
@@ -118,32 +118,47 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         // TODO add your handling code here:
-String usuario_nuevo = UsuarioPrincipal.getText().toLowerCase();
-        if (usuario_nuevo.charAt(0) != '@') {
-            usuario_nuevo = "@" + usuario_nuevo;
-        }
-        boolean valido = false;
-        int conteo = 0;
-        String relacion = UsuarioRelaciones.getText().toLowerCase();
-        for (int i = 0; i < relacion.split(",").length; i++) {
-            if (main.lista_usuarios.buscar(relacion.split(",")[i]) == false) {
-                JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios ya agregados y recuerde ponerle el '@'");
 
+        /**
+         * *
+         * Descripción: Con esta función se valida la información ingresada y se
+         * llama a la función de agregar usuarios.
+         *
+         * @author: Luis Rivera
+         * @version: 26/10/2023
+         *
+         */
+        try {
+            String usuario_nuevo = UsuarioPrincipal.getText().toLowerCase();
+            if (usuario_nuevo.charAt(0) != '@') {
+                usuario_nuevo = "@" + usuario_nuevo;
             }
-
-        }
-        if (valido != true) {
+            boolean valido = false;
+            int conteo = 0;
+            String relacion = UsuarioRelaciones.getText().toLowerCase();
             for (int i = 0; i < relacion.split(",").length; i++) {
-                if (relacion.split(",")[i].charAt(0) == '@') {
-                    conteo++;
+                if (main.lista_usuarios.buscar(relacion.split(",")[i]) == false) {
+                    JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios previamente agregados y recuerde ponerle el '@'");
+
                 }
-            }
-            if (conteo == relacion.split(",").length) {
-                funciones.AgregarNuevo(usuario_nuevo, relacion);
-            } else {
-                JOptionPane.showMessageDialog(null, "los usuarios se ingresaron mal!, coloquele el '@' y separelo por ',' ");
+
             }
 
+            if (valido != true) {
+                for (int i = 0; i < relacion.split(",").length; i++) {
+                    if (relacion.split(",")[i].charAt(0) == '@') {
+                        conteo++;
+                    }
+                }
+                if (conteo == relacion.split(",").length) {
+                    funciones.AgregarNuevo(usuario_nuevo, relacion);
+                } else {
+                    JOptionPane.showMessageDialog(null, "los usuarios se ingresaron mal!, coloquele el '@' y separelo por ',' ");
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "La base de datos está vacía");
         }
 
     }//GEN-LAST:event_AgregarActionPerformed
