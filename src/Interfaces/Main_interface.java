@@ -205,6 +205,17 @@ public class Main_interface extends javax.swing.JFrame {
                 }
 	    }
 
+            String styleSheet = "node{"
+                    + "text-mode: normal; text-alignment: center;text-size: 15;"
+                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
+                    + ""
+                    + "edge{"
+                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
+
+            grafo.setAttribute("ui.stylesheet", styleSheet);
+            System.setProperty("org.graphstream.ui.renderer",
+                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
     }//GEN-LAST:event_leer_archivoActionPerformed
 
     private void VerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerGrafoActionPerformed
@@ -238,17 +249,6 @@ public class Main_interface extends javax.swing.JFrame {
 	}
             
 
-            String styleSheet = "node{"
-                    + "text-mode: normal; text-alignment: center;text-size: 15;"
-                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
-                    + ""
-                    + "edge{"
-                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
-                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
-
-            grafo.setAttribute("ui.stylesheet", styleSheet);
-            System.setProperty("org.graphstream.ui.renderer",
-                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
             Viewer viewer = grafo.display();
 
