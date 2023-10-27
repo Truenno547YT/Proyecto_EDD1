@@ -200,6 +200,14 @@ Graph grafo = new SingleGraph("Red Social");
          * @version: 26/10/2023
          *
          */
+
+
+        if (grafo.getNodeCount() != 0) {
+		for (int i = 0; i < grafo.getNodeCount(); i++) {
+			grafo.getNode(i).setAttribute("ui.style", "fill-color:gray;");
+			
+		}
+	}
         grafo.setStrict(false);
         grafo.setAutoCreate(true);
 
