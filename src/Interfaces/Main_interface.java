@@ -192,6 +192,19 @@ public class Main_interface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erorr!!!! No has cargado el archivo correcto");
         }
 
+
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
+
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                String nodo1 = (String) pAux.getData();
+                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+                    String nodo2 = (String) pAux1.getData();
+                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+                }
+	    }
+
     }//GEN-LAST:event_leer_archivoActionPerformed
 
     private void VerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerGrafoActionPerformed
@@ -218,17 +231,12 @@ public class Main_interface extends javax.swing.JFrame {
         grafo.setAutoCreate(true);
 
         if (!main.lista_usuarios.isEmpty()) {
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-            }
-
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                String nodo1 = (String) pAux.getData();
-                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
-                    String nodo2 = (String) pAux1.getData();
-                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-                }
-            }
+		System.out.println("too fino");
+	}else{	
+            JOptionPane.showMessageDialog(null, "No se ha cargado ningún archivo!");
+	    return;
+	}
+            
 
             String styleSheet = "node{"
                     + "text-mode: normal; text-alignment: center;text-size: 15;"
@@ -247,10 +255,7 @@ public class Main_interface extends javax.swing.JFrame {
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
-        } else {
-            JOptionPane.showMessageDialog(null, "No se ha cargado ningún archivo!");
-        }
-
+    
 
     }//GEN-LAST:event_VerGrafoActionPerformed
 
