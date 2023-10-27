@@ -164,7 +164,7 @@ public class funciones {
          *@version: 26/10/2023
          * */
 
-        if (main.lista_usuarios.buscar(usuario_nuevo) == true) {
+        if (main.lista_usuarios.buscar(usuario_nuevo)) {
             JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
         } else {
             main.lista_usuarios.InsertLast(usuario_nuevo);
@@ -174,8 +174,9 @@ public class funciones {
                 relaciones.InsertLast(relacion.split(",")[i]);
             }
             pAux.setAdyList(relaciones);
+            JOptionPane.showMessageDialog(null, "El Usuario se ingreso correctamente");
         }
-        JOptionPane.showMessageDialog(null, "El Usuario se ingreso correctamente");
-    }
+        
+ 
 
-}
+}}
