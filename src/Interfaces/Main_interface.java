@@ -24,12 +24,14 @@ import javax.swing.JOptionPane;
 import org.graphstream.ui.view.Viewer;
 import estructuras.ListaUsuarios;
 import org.graphstream.algorithm.ConnectedComponents;
+import java.util.Random;
 
 /**
  *
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class Main_interface extends javax.swing.JFrame {
+Graph grafo = new SingleGraph("Red Social");
 
     public static Modificar_interfaz v2;
 
@@ -125,12 +127,28 @@ public class Main_interface extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
+
+        for (NodoRelacion pAux = totalscc.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+            System.out.println("\nComponente: ");
+            String comp = "";
+            ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
+            Random random = new Random();
+            int nextInt = random.nextInt(0xffffff + 1);    
+            String colorCode = String.format("#%06x", nextInt);
+            String random_color = colorCode;
+            for (NodoRelacion pAux2 = pAuxreal.getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()) {
+                comp = pAux2.getData().toString();
+	grafo.getNode(comp).setAttribute("ui.style", "fill-color: " + colorCode + ";");
+            }
+            System.out.println(comp); //ESTO ES SOLO PARA IMPRIMIR Y VER LA ESTRUCTURA DE LA LISTA
+        }
+	
         //AQUI HAY QUE COLOREAR LOS GRAFOS CON LA LIBRERÍA
 
-//       	Viewer viewer = grafo.display(); ESTO NO
-//
-//           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-//           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+       	Viewer viewer = grafo.display(); 
+
+           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+           viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
     }//GEN-LAST:event_componentesActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
@@ -182,7 +200,6 @@ public class Main_interface extends javax.swing.JFrame {
          * @version: 26/10/2023
          *
          */
-        Graph grafo = new SingleGraph("Red Social");
         grafo.setStrict(false);
         grafo.setAutoCreate(true);
 

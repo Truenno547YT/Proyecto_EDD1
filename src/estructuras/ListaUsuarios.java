@@ -170,5 +170,18 @@ public void EliminarPorReferencia(T referencia) {
             size--;
         }
     }
-	
+
+public NodoUsuario buscarNodo(T referencia) {
+        NodoUsuario aux = this.pFirst;
+        boolean encontrado = false;
+        while (aux != null && encontrado != true) {
+            if (aux.getData().equals(referencia)) {
+                encontrado = true;
+            } else {
+                aux = aux.getPnext();
+            }
+        }
+        return aux;
+
+    }
 }

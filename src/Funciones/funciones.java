@@ -125,20 +125,6 @@ public class funciones {
 
     }
 
-    public static void AgregarNuevo(String usuario_nuevo, String relacion) {
-
-        if (main.lista_usuarios.buscar(usuario_nuevo)) {
-            JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
-        }
-        main.lista_usuarios.InsertLast(usuario_nuevo);
-        NodoUsuario pAux = main.lista_usuarios.getpLast();
-        ListaRelaciones relaciones = new ListaRelaciones();
-        String[] relacionesarray = relacion.split(",");
-        for (int i = 0; i < relacionesarray.length; i++) {
-            relaciones.InsertLast(relacionesarray[i]);      
-        }
-        pAux.setAdyList(relaciones);
-    }
 
     public static void EliminarUsuario(String usuario) {
         main.lista_usuarios.EliminarPorReferencia(usuario);
@@ -149,6 +135,27 @@ public class funciones {
         }
         
 
+    }
+
+    public static void AgregarNuevo(String usuario_nuevo, String relacion) {
+
+        if (main.lista_usuarios.buscar(usuario_nuevo) == true) {
+            JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
+            NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);
+            ListaRelaciones relaciones = pAux.getAdyList();
+            for (int i = 0; i < relacion.split(",").length; i++) {
+                relaciones.InsertLast(relacion.split(",")[i]);
+            }
+        } else {
+            main.lista_usuarios.InsertLast(usuario_nuevo);
+            NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);
+            ListaRelaciones relaciones = new ListaRelaciones();
+            for (int i = 0; i < relacion.split(",").length; i++) {
+                relaciones.InsertLast(relacion.split(",")[i]);
+            }
+            pAux.setAdyList(relaciones);
+        }
+        JOptionPane.showMessageDialog(null, "El Usuario se ingreso correctamente");
     }
 
 }

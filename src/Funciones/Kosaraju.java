@@ -46,15 +46,6 @@ public class Kosaraju {
             }
         }
 
-        for (NodoRelacion pAux = totalscc.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-            System.out.println("\nComponente: ");
-            String comp = "";
-            ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
-            for (NodoRelacion pAux2 = pAuxreal.getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()) {
-                comp = comp + "-" + pAux2.getData().toString();
-            }
-            System.out.println(comp); //ESTO ES SOLO PARA IMPRIMIR Y VER LA ESTRUCTURA DE LA LISTA
-        }
         
         return totalscc;
 
