@@ -133,7 +133,6 @@ public class Main_interface extends javax.swing.JFrame {
             ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
 
             for (NodoRelacion pAux = totalscc.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                System.out.println("\nComponente: ");
                 String comp = "";
                 ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
                 Random random = new Random();
@@ -144,10 +143,8 @@ public class Main_interface extends javax.swing.JFrame {
                     comp = pAux2.getData().toString();
                     grafo.getNode(comp).setAttribute("ui.style", "fill-color: " + colorCode + ";");
                 }
-                System.out.println(comp); //ESTO ES SOLO PARA IMPRIMIR Y VER LA ESTRUCTURA DE LA LISTA
             }
 
-            //AQUI HAY QUE COLOREAR LOS GRAFOS CON LA LIBRERÍA
             Viewer viewer = grafo.display();
 
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
@@ -224,8 +221,6 @@ public class Main_interface extends javax.swing.JFrame {
                     grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
                 }
             }
-
-            main.lista_usuarios.print();
 
             String styleSheet = "node{"
                     + "text-mode: normal; text-alignment: center;text-size: 15;"

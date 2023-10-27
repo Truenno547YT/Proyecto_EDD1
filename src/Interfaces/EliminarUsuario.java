@@ -56,7 +56,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 210, -1));
+        jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 210, -1));
 
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,11 +98,15 @@ public class EliminarUsuario extends javax.swing.JFrame {
              *
              * @author: Luis Rivera
              * @version: 26/10/2023
-         *
+             *
              */
-            JOptionPane.showMessageDialog(null, "El usuario: " + ComboBox.getSelectedItem().toString() + ", fué eliminado");
-            String usuario = ComboBox.getSelectedItem().toString();
-            funciones.EliminarUsuario(usuario);
+            if (main.lista_usuarios.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error, debe cargar la base de datos primero con el txt");
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario: " + ComboBox.getSelectedItem().toString() + ", fué eliminado");
+                String usuario = ComboBox.getSelectedItem().toString();
+                funciones.EliminarUsuario(usuario);
+            }
         }//GEN-LAST:event_EliminarActionPerformed
 
     /**

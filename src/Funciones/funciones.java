@@ -38,7 +38,6 @@ public class funciones {
          * */
         try {
             Scanner lector = new Scanner(main.selectedFile);
-//			System.out.println("Seleccion Exitosa, Ubicacion:" + main.selectedFile); //Eliminar luego
             StringBuilder data = new StringBuilder();
             while (lector.hasNextLine()) {
                 String data_ln = lector.nextLine();
@@ -167,11 +166,6 @@ public class funciones {
 
         if (main.lista_usuarios.buscar(usuario_nuevo) == true) {
             JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
-            NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);
-            ListaRelaciones relaciones = pAux.getAdyList();
-            for (int i = 0; i < relacion.split(",").length; i++) {
-                relaciones.InsertLast(relacion.split(",")[i]);
-            }
         } else {
             main.lista_usuarios.InsertLast(usuario_nuevo);
             NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);

@@ -6,17 +6,20 @@ package Interfaces;
 
 import Funciones.funciones;
 import static Funciones.funciones.leer_archivo;
+import Main.main;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ana Blanco
  */
 public class Modificar_interfaz extends javax.swing.JFrame {
-    
+
     public static Main_interface v1;
+
     /**
      * Creates new form Modificar_interfaz
      */
@@ -98,50 +101,66 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        
-        /***
-         *Descripción: Con esta función se regresa a la ventan principal
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
+
+        /**
+         * *
+         * Descripción: Con esta función se regresa a la ventan principal
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         Main_interface v1 = new Main_interface(this);
         v1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
 
     private void GuardartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardartxtActionPerformed
-        /***
-         *Descripción: Con este botón, accionas la función de guardar información 
-         * que se encuentra en el archivo funciones.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
-        funciones.escribir_archivo();
-        // TODO add your handling code here:
+        /**
+         * *
+         * Descripción: Con este botón, accionas la función de guardar
+         * información que se encuentra en el archivo funciones.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
+
+        if (main.lista_usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe cargar primero la base de datos para guardar cambios");
+        } else {
+            funciones.escribir_archivo();
+        }
 
     }//GEN-LAST:event_GuardartxtActionPerformed
 
     private void ElimnarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElimnarUsuarioActionPerformed
-        
-        /***
-         *Descripción: Con este botón, se da acceso a la ventana de eliminar usuario
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
-        
+
+        /**
+         * *
+         * Descripción: Con este botón, se da acceso a la ventana de eliminar
+         * usuario
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         EliminarUsuario eliminar = new EliminarUsuario();
         eliminar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ElimnarUsuarioActionPerformed
 
     private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
-        
-        /***
-         *Descripción: Con este botón, se da acceso a la ventana de agregar usuario
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
-        
+
+        /**
+         * *
+         * Descripción: Con este botón, se da acceso a la ventana de agregar
+         * usuario
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         AgregarUsuario agregar = new AgregarUsuario(this);
         agregar.setVisible(true);
         this.setVisible(false);

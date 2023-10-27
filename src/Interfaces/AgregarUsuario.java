@@ -128,37 +128,49 @@ public class AgregarUsuario extends javax.swing.JFrame {
          * @version: 26/10/2023
          *
          */
-        try {
-            String usuario_nuevo = UsuarioPrincipal.getText().toLowerCase();
-            if (usuario_nuevo.charAt(0) != '@') {
-                usuario_nuevo = "@" + usuario_nuevo;
-            }
-            boolean valido = false;
-            int conteo = 0;
-            String relacion = UsuarioRelaciones.getText().toLowerCase();
-            for (int i = 0; i < relacion.split(",").length; i++) {
-                if (main.lista_usuarios.buscar(relacion.split(",")[i]) == false) {
-                    JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios previamente agregados y recuerde ponerle el '@'");
+        if (main.lista_usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Error, primero debe cargar la base de datos con el txt");
+        } else {
+            try {
+                if (UsuarioPrincipal.getText() == "@") {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar los usuarios");
+                } else {
+                    String usuario_nuevo = UsuarioPrincipal.getText().toLowerCase();
+                    if (usuario_nuevo.charAt(0) != '@') {
+                        usuario_nuevo = "@" + usuario_nuevo;
+                    }
+                    
+                    boolean valido = false;
+                    int conteo = 0;
+                    String relacion = UsuarioRelaciones.getText().toLowerCase();
+                    for (int i = 0; i < relacion.split(",").length; i++) {
+                        if (!main.lista_usuarios.buscar(relacion.split(",")[i])) {           
+                            valido = false;
+                        }else{
+                            valido = true;
+                        }
 
-                }
+                    }
 
-            }
+                    if (valido == true) {
+                        for (int i = 0; i < relacion.split(",").length; i++) {
+                            if (relacion.split(",")[i].charAt(0) == '@') {
+                                conteo++;
+                            }
+                        }
+                        if (conteo == relacion.split(",").length) {
+                            funciones.AgregarNuevo(usuario_nuevo, relacion);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "los usuarios se ingresaron mal!, coloquele el '@' y separelo por ',' ");
+                        }
 
-            if (valido != true) {
-                for (int i = 0; i < relacion.split(",").length; i++) {
-                    if (relacion.split(",")[i].charAt(0) == '@') {
-                        conteo++;
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios previamente agregados y recuerde ponerle el '@'");
                     }
                 }
-                if (conteo == relacion.split(",").length) {
-                    funciones.AgregarNuevo(usuario_nuevo, relacion);
-                } else {
-                    JOptionPane.showMessageDialog(null, "los usuarios se ingresaron mal!, coloquele el '@' y separelo por ',' ");
-                }
-
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "");
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "La base de datos está vacía");
         }
 
     }//GEN-LAST:event_AgregarActionPerformed
