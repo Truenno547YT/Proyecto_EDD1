@@ -125,4 +125,30 @@ public class funciones {
 
     }
 
+    public static void AgregarNuevo(String usuario_nuevo, String relacion) {
+
+        if (main.lista_usuarios.buscar(usuario_nuevo)) {
+            JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
+        }
+        main.lista_usuarios.InsertLast(usuario_nuevo);
+        NodoUsuario pAux = main.lista_usuarios.getpLast();
+        ListaRelaciones relaciones = new ListaRelaciones();
+        String[] relacionesarray = relacion.split(",");
+        for (int i = 0; i < relacionesarray.length; i++) {
+            relaciones.InsertLast(relacionesarray[i]);      
+        }
+        pAux.setAdyList(relaciones);
+    }
+
+    public static void EliminarUsuario(String usuario) {
+        main.lista_usuarios.EliminarPorReferencia(usuario);
+        NodoUsuario aux = main.lista_usuarios.getpFirst();
+        while (aux != null) {
+            aux.getAdyList().EliminarPorReferenciaRelacion(usuario);
+            aux = aux.getPnext();
+        }
+        
+
+    }
+
 }

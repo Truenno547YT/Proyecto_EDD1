@@ -139,5 +139,36 @@ public class ListaUsuarios<T> {
 		this.pLast = null;
 		this.size = 0; 
 	}
+
+public boolean buscar(T referencia) {
+        NodoUsuario aux = this.pFirst;
+        boolean encontrado = false;
+        while (aux != null && encontrado != true) {
+            if (aux.getData().equals(referencia)) {
+                encontrado = true;
+            } else {
+                aux = aux.getPnext();
+            }
+        }
+        return encontrado;
+
+    }
+
+public void EliminarPorReferencia(T referencia) {
+        if (buscar(referencia)) {
+            if (this.pFirst.getData().equals(referencia)) {
+                this.pFirst = this.pFirst.getPnext();
+            } else {
+                NodoUsuario<T> aux = this.pFirst;
+                while (!aux.getPnext().getData().equals(referencia)) {
+                    aux = aux.getPnext();
+
+                }
+                NodoUsuario siguiente = aux.getPnext().getPnext();
+                aux.setPnext(siguiente);
+            }
+            size--;
+        }
+    }
 	
 }

@@ -110,4 +110,33 @@ public class ListaRelaciones<T> {
 		this.size = 0; 
 	}
 
+public boolean buscar(T referencia) {
+        NodoRelacion aux = this.pFirst;
+        boolean encontrado = false;
+        while (aux != null && encontrado != true) {
+            if (aux.getData().equals(referencia)) {
+                encontrado = true;
+            } else {
+                aux = aux.getPnext();
+            }
+        }
+        return encontrado;
+
+    }
+	
+public void EliminarPorReferenciaRelacion(T referencia) {
+        if (buscar(referencia)) {
+            if (this.pFirst.getData().equals(referencia)) {
+                this.pFirst = this.pFirst.getPnext();
+            } else {
+                NodoRelacion<T> aux = this.pFirst;
+                while (!aux.getPnext().getData().equals(referencia)) {
+                    aux = aux.getPnext();
+                }
+                NodoRelacion siguiente = aux.getPnext().getPnext();
+                aux.setPnext(siguiente);
+            }
+            size--;
+        }
+    }
 }
