@@ -5,125 +5,121 @@
 package estructuras;
 
 /**
- *  Esta es la estructura pricipal del grafo.
- * 
+ * Esta es la estructura pricipal del grafo.
+ *
  * @author Andrés Díaz, Luis Rivera y Ana Blanco
  */
 public class ListaUsuarios<T> {
-	
-	private NodoUsuario<T> pFirst;
-	private NodoUsuario<T> pLast;
-	private int size;
 
-	public ListaUsuarios() {
-		this.pFirst = null;
-		this.pLast = null;
-		this.size = 0;
-	}
-        
-        // Getters and Setters
+    private NodoUsuario<T> pFirst;
+    private NodoUsuario<T> pLast;
+    private int size;
 
-	public NodoUsuario<T> getpFirst() {
-		return pFirst;
-	}
+    public ListaUsuarios() {
+        this.pFirst = null;
+        this.pLast = null;
+        this.size = 0;
+    }
 
-	public void setpFirst(NodoUsuario<T> pFirst) {
-		this.pFirst = pFirst;
-	}
+    // Getters and Setters
+    public NodoUsuario<T> getpFirst() {
+        return pFirst;
+    }
 
-	public NodoUsuario<T> getpLast() {
-		return pLast;
-	}
+    public void setpFirst(NodoUsuario<T> pFirst) {
+        this.pFirst = pFirst;
+    }
 
-	public void setpLast(NodoUsuario<T> pLast) {
-		this.pLast = pLast;
-	}
+    public NodoUsuario<T> getpLast() {
+        return pLast;
+    }
 
-	public int getSize() {
-		return size;
-	}
+    public void setpLast(NodoUsuario<T> pLast) {
+        this.pLast = pLast;
+    }
 
-	public void setSize(int size) {
-		this.size = size;
-	}
+    public int getSize() {
+        return size;
+    }
 
-	
-        // FUNCIONES DE LA LISTA
-	public boolean isEmpty() {
-		return this.pFirst == null;
-	}
+    public void setSize(int size) {
+        this.size = size;
+    }
 
-	public void InsertBegin(T data) {
-		NodoUsuario nodo = new NodoUsuario(data);
-		if (isEmpty()) {
-			this.setpFirst(nodo);
-			this.setpLast(nodo);
-		} else {
-			nodo.setPnext(this.getpFirst());
-			this.setpFirst(nodo);
-		}
-		size++;
-	}
+    // FUNCIONES DE LA LISTA
+    public boolean isEmpty() {
+        return this.pFirst == null;
+    }
 
+    public void InsertBegin(T data) {
+        NodoUsuario nodo = new NodoUsuario(data);
+        if (isEmpty()) {
+            this.setpFirst(nodo);
+            this.setpLast(nodo);
+        } else {
+            nodo.setPnext(this.getpFirst());
+            this.setpFirst(nodo);
+        }
+        size++;
+    }
 
-	public void InsertLast(T data) {
-		NodoUsuario nodo = new NodoUsuario(data);
-		if (isEmpty()) {
-			this.setpFirst(nodo);
-			this.setpLast(nodo);
-		} else {
-			this.pLast.setPnext(nodo);
-			this.pLast = nodo;
-		}
-		this.size++;
-	}
+    public void InsertLast(T data) {
+        NodoUsuario nodo = new NodoUsuario(data);
+        if (isEmpty()) {
+            this.setpFirst(nodo);
+            this.setpLast(nodo);
+        } else {
+            this.pLast.setPnext(nodo);
+            this.pLast = nodo;
+        }
+        this.size++;
+    }
 
-	public void print() {
-		NodoUsuario pAux = this.getpFirst();
-		while (pAux != null) {
-			System.out.println("\n"+pAux.getData());
+    public void print() {
+        NodoUsuario pAux = this.getpFirst();
+        while (pAux != null) {
+            System.out.println("\n" + pAux.getData());
             String lista = pAux.getAdyList().print();
-            System.out.println("Lista adyacente: "+ lista + "\n");
-			pAux = pAux.getPnext();
-		}
-	}
-    
+            System.out.println("Lista adyacente: " + lista + "\n");
+            pAux = pAux.getPnext();
+        }
+    }
+
     //    Buscar por indices
-    public NodoUsuario<T> searchByIndex(int index){
+    public NodoUsuario<T> searchByIndex(int index) {
         NodoUsuario<T> pAux = this.pFirst;
         int count = 0;
-        
-        while(pAux != null && count != index){
+
+        while (pAux != null && count != index) {
             pAux = pAux.getPnext();
             count++;
         }
-        
-        if(pAux != null){
-            return pAux;
-        }else{
-            return null;
-        }
-    }
-    
-    
-    //    Buscar información por el indice
-    public String returnIndexData(int index){
-        NodoUsuario<T> returnedNode = this.searchByIndex(index);
-        
-        if(returnedNode == null){
-            return null;
-        }else{
-            return (String)returnedNode.getData();
-        }
-    }
-    
-    public T getValor(int posicion){
 
-        if(posicion>=0 && posicion<size){
-            
+        if (pAux != null) {
+            return pAux;
+        } else {
+            return null;
+        }
+    }
+
+    //    Buscar información por el indice
+    public String returnIndexData(int index) {
+        NodoUsuario<T> returnedNode = this.searchByIndex(index);
+
+        if (returnedNode == null) {
+            return null;
+        } else {
+            return (String) returnedNode.getData();
+        }
+    }
+
+    public T getValor(int posicion) {
+
+        if (posicion >= 0 && posicion < size) {
+
             if (posicion == 0) {
                 return pFirst.getData();
-            }else{
+            } else {
                 NodoUsuario aux = pFirst;
                 for (int i = 0; i < posicion; i++) {
                     aux = aux.getPnext();
@@ -134,13 +130,13 @@ public class ListaUsuarios<T> {
         return null;
     }
 
-	public void resetList() {
-		this.pFirst = null;
-		this.pLast = null;
-		this.size = 0; 
-	}
+    public void resetList() {
+        this.pFirst = null;
+        this.pLast = null;
+        this.size = 0;
+    }
 
-public boolean buscar(T referencia) {
+    public boolean buscar(T referencia) {
         NodoUsuario aux = this.pFirst;
         boolean encontrado = false;
         while (aux != null && encontrado != true) {
@@ -154,7 +150,7 @@ public boolean buscar(T referencia) {
 
     }
 
-public void EliminarPorReferencia(T referencia) {
+    public void EliminarPorReferencia(T referencia) {
         if (buscar(referencia)) {
             if (this.pFirst.getData().equals(referencia)) {
                 this.pFirst = this.pFirst.getPnext();
@@ -171,7 +167,7 @@ public void EliminarPorReferencia(T referencia) {
         }
     }
 
-public NodoUsuario buscarNodo(T referencia) {
+    public NodoUsuario buscarNodo(T referencia) {
         NodoUsuario aux = this.pFirst;
         boolean encontrado = false;
         while (aux != null && encontrado != true) {

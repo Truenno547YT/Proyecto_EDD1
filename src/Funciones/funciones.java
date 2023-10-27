@@ -30,9 +30,14 @@ import javax.swing.JOptionPane;
 public class funciones {
 
     public static void leer_archivo() throws FileNotFoundException {
+        
+        /***
+         *Descripción: Esto se encarga de abrir los documentos y permitir leer el archivo txt
+         *@author: Ana Blanco y Andrés Díaz
+         *@version: 26/10/2023
+         * */
         try {
             Scanner lector = new Scanner(main.selectedFile);
-//			System.out.println("Seleccion Exitosa, Ubicacion:" + main.selectedFile); //Eliminar luego
             StringBuilder data = new StringBuilder();
             while (lector.hasNextLine()) {
                 String data_ln = lector.nextLine();
@@ -82,6 +87,12 @@ public class funciones {
     }
     
     public static void escribir_archivo() {
+        
+        /***
+         *Descripción: Esto se encarga de escribir en el txt, los cambios hechos en la estructura
+         *@author: Ana Blanco
+         *@version: 26/10/2023
+         * */
 
         String guardar = "usuarios\n";
 
@@ -127,6 +138,14 @@ public class funciones {
 
 
     public static void EliminarUsuario(String usuario) {
+        
+        /***
+         *Descripción: Esto se encarga de eliminar tanto de la lista principal como de 
+         * las de adyacencia un usuario
+         *@author: Luis Rivera
+         *@version: 26/10/2023
+         * */
+        
         main.lista_usuarios.EliminarPorReferencia(usuario);
         NodoUsuario aux = main.lista_usuarios.getpFirst();
         while (aux != null) {
@@ -138,14 +157,15 @@ public class funciones {
     }
 
     public static void AgregarNuevo(String usuario_nuevo, String relacion) {
+        
+        /***
+         *Descripción: Esto se encarga de agregar un nuevo usuario a la lista
+         *@author: Luis Rivera
+         *@version: 26/10/2023
+         * */
 
         if (main.lista_usuarios.buscar(usuario_nuevo) == true) {
             JOptionPane.showMessageDialog(null, "El Usuario ya se encuentra en la lista");
-            NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);
-            ListaRelaciones relaciones = pAux.getAdyList();
-            for (int i = 0; i < relacion.split(",").length; i++) {
-                relaciones.InsertLast(relacion.split(",")[i]);
-            }
         } else {
             main.lista_usuarios.InsertLast(usuario_nuevo);
             NodoUsuario pAux = main.lista_usuarios.buscarNodo(usuario_nuevo);
