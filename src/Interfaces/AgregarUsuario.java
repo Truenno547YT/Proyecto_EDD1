@@ -165,7 +165,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                         }
 
                     }else{
-                        JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios previamente agregados y recuerde ponerle el '@'");
+                        JOptionPane.showMessageDialog(null, "Solo se puede relacionar con usuarios previamente agregados. \nRecuerde ponerle el '@' y sin espacios incluidos");
                     }
                 }
             } catch (Exception e) {
