@@ -135,7 +135,7 @@ if(main.lista_usuarios.getSize() == 0) {
 	    return;
 }
 
-if(grafo.getNodeCount() == 0) {
+        if (grafo.getNodeCount() == 0) {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
                 grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
             }
@@ -144,15 +144,15 @@ if(grafo.getNodeCount() == 0) {
                 String nodo1 = (String) pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String) pAux1.getData();
-                   Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-		}
-	    }
-}else{
-	grafo.clear();
-	componentesActionPerformed(evt);
-	return;
-}
-	
+                    Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+                }
+            }
+        } else {
+            grafo.clear();
+            componentesActionPerformed(evt);
+            return;
+        }
+
         try {
             ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
 
@@ -169,7 +169,6 @@ if(grafo.getNodeCount() == 0) {
                 }
             }
 
-
             String styleSheet = "node{"
                     + "text-mode: normal; text-alignment: center;text-size: 15;"
                     + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
@@ -181,7 +180,7 @@ if(grafo.getNodeCount() == 0) {
             grafo.setAttribute("ui.stylesheet", styleSheet);
             System.setProperty("org.graphstream.ui.renderer",
                     "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-	    
+
             Viewer viewer = grafo.display();
 
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
@@ -229,30 +228,29 @@ if(grafo.getNodeCount() == 0) {
             JOptionPane.showMessageDialog(null, "Erorr!!!! No has cargado el archivo correcto");
         }
 
+        for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+            grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+        }
 
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+        for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+            String nodo1 = (String) pAux.getData();
+            for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+                String nodo2 = (String) pAux1.getData();
+                grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
             }
+        }
 
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                String nodo1 = (String) pAux.getData();
-                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
-                    String nodo2 = (String) pAux1.getData();
-                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-                }
-	    }
+        String styleSheet = "node{"
+                + "text-mode: normal; text-alignment: center;text-size: 15;"
+                + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
+                + ""
+                + "edge{"
+                + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
 
-            String styleSheet = "node{"
-                    + "text-mode: normal; text-alignment: center;text-size: 15;"
-                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
-                    + ""
-                    + "edge{"
-                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
-                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
-
-            grafo.setAttribute("ui.stylesheet", styleSheet);
-            System.setProperty("org.graphstream.ui.renderer",
-                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        grafo.setAttribute("ui.stylesheet", styleSheet);
+        System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
     }//GEN-LAST:event_leer_archivoActionPerformed
 
     private void VerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerGrafoActionPerformed
@@ -267,9 +265,7 @@ if(grafo.getNodeCount() == 0) {
          * @version: 26/10/2023
          *
          */
-
-
-if(grafo.getNodeCount() == 0) {
+        if (grafo.getNodeCount() == 0) {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
                 grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
             }
@@ -278,31 +274,31 @@ if(grafo.getNodeCount() == 0) {
                 String nodo1 = (String) pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String) pAux1.getData();
-                   Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-		}
-	    }
-}else{
-	grafo.clear();
-	VerGrafoActionPerformed(evt);
-	return;
-}
+                    Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+                }
+            }
+        } else {
+            grafo.clear();
+            VerGrafoActionPerformed(evt);
+            return;
+        }
         if (grafo.getNodeCount() != 0) {
-		for (int i = 0; i < grafo.getNodeCount(); i++) {
-			grafo.getNode(i).setAttribute("ui.style", "fill-color:gray;");
-			
-		}
-	}
+            for (int i = 0; i < grafo.getNodeCount(); i++) {
+                grafo.getNode(i).setAttribute("ui.style", "fill-color:gray;");
+
+            }
+        }
         grafo.setStrict(false);
         grafo.setAutoCreate(true);
 
         if (!main.lista_usuarios.isEmpty()) {
-		System.out.println("too fino");
-	}else{	
+            System.out.println("too fino");
+        } else {
             JOptionPane.showMessageDialog(null, "No se ha cargado ningún archivo!");
-	    return;
-	}
-            
-try {
+            return;
+        }
+
+        try {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
                 grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
             }
@@ -313,29 +309,28 @@ try {
                     String nodo2 = (String) pAux1.getData();
                     grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
                 }
-	    }
-}catch(Exception e){
-	System.out.println("no se ha cargado ningun archivo");
-}
+            }
+        } catch (Exception e) {
+            System.out.println("no se ha cargado ningun archivo");
+        }
 
-            String styleSheet = "node{"
-                    + "text-mode: normal; text-alignment: center;text-size: 15;"
-                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
-                    + ""
-                    + "edge{"
-                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
-                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
+        String styleSheet = "node{"
+                + "text-mode: normal; text-alignment: center;text-size: 15;"
+                + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
+                + ""
+                + "edge{"
+                + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
 
-            grafo.setAttribute("ui.stylesheet", styleSheet);
-            System.setProperty("org.graphstream.ui.renderer",
-                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        grafo.setAttribute("ui.stylesheet", styleSheet);
+        System.setProperty("org.graphstream.ui.renderer",
+                "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
-            Viewer viewer = grafo.display();
+        Viewer viewer = grafo.display();
 
-            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
-    
 
     }//GEN-LAST:event_VerGrafoActionPerformed
 
