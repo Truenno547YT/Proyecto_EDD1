@@ -153,6 +153,7 @@ public class funciones {
             aux = aux.getPnext();
         }
         
+        
 
     }
 

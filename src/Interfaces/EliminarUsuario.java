@@ -106,6 +106,12 @@ public class EliminarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El usuario: " + ComboBox.getSelectedItem().toString() + ", fué eliminado");
                 String usuario = ComboBox.getSelectedItem().toString();
                 funciones.EliminarUsuario(usuario);
+                NodoUsuario aux = main.lista_usuarios.getpFirst();
+                ComboBox.removeAllItems();
+                for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+                    ComboBox.addItem(aux.getData().toString());
+                    aux = aux.getPnext();
+                }
             }
         }//GEN-LAST:event_EliminarActionPerformed
 

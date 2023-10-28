@@ -39,16 +39,14 @@ public class Modificar_interfaz extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         AgregarUsuario = new javax.swing.JButton();
-        ElimnarUsuario = new javax.swing.JButton();
+        EliminarUsuario = new javax.swing.JButton();
         Guardartxt = new javax.swing.JButton();
         Back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(188, 164, 211));
-        setMaximumSize(new java.awt.Dimension(550, 400));
         setMinimumSize(new java.awt.Dimension(550, 400));
-        setPreferredSize(new java.awt.Dimension(550, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(181, 176, 193));
@@ -62,16 +60,16 @@ public class Modificar_interfaz extends javax.swing.JFrame {
                 AgregarUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(AgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 130));
+        jPanel2.add(AgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 130, 130));
 
-        ElimnarUsuario.setBackground(new java.awt.Color(255, 255, 204));
-        ElimnarUsuario.setText("Eliminar  usuario ");
-        ElimnarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        EliminarUsuario.setBackground(new java.awt.Color(255, 255, 204));
+        EliminarUsuario.setText("Eliminar  usuario ");
+        EliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ElimnarUsuarioActionPerformed(evt);
+                EliminarUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(ElimnarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, 130));
+        jPanel2.add(EliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 130, 130));
 
         Guardartxt.setBackground(new java.awt.Color(255, 255, 204));
         Guardartxt.setText("Guardar cambio");
@@ -80,7 +78,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
                 GuardartxtActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 130, 130));
+        jPanel2.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, 130));
 
         Back.setBackground(new java.awt.Color(255, 255, 204));
         Back.setText("Regresar");
@@ -93,7 +91,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (2.).png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 550, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 552, 430));
 
@@ -134,7 +132,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_GuardartxtActionPerformed
 
-    private void ElimnarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElimnarUsuarioActionPerformed
+    private void EliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarUsuarioActionPerformed
 
         /**
          * *
@@ -148,7 +146,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
         EliminarUsuario eliminar = new EliminarUsuario();
         eliminar.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_ElimnarUsuarioActionPerformed
+    }//GEN-LAST:event_EliminarUsuarioActionPerformed
 
     private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
 
@@ -204,7 +202,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarUsuario;
     private javax.swing.JButton Back;
-    private javax.swing.JButton ElimnarUsuario;
+    private javax.swing.JButton EliminarUsuario;
     private javax.swing.JButton Guardartxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
