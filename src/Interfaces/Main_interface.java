@@ -129,6 +129,20 @@ public class Main_interface extends javax.swing.JFrame {
          *
          */
         // TODO add your handling code here:
+
+
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
+
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                String nodo1 = (String) pAux.getData();
+                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+                    String nodo2 = (String) pAux1.getData();
+                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+                }
+	    }
+	
         try {
             ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
 
@@ -145,6 +159,19 @@ public class Main_interface extends javax.swing.JFrame {
                 }
             }
 
+
+            String styleSheet = "node{"
+                    + "text-mode: normal; text-alignment: center;text-size: 15;"
+                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
+                    + ""
+                    + "edge{"
+                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
+
+            grafo.setAttribute("ui.stylesheet", styleSheet);
+            System.setProperty("org.graphstream.ui.renderer",
+                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+	    
             Viewer viewer = grafo.display();
 
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
@@ -248,7 +275,29 @@ public class Main_interface extends javax.swing.JFrame {
 	    return;
 	}
             
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
 
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                String nodo1 = (String) pAux.getData();
+                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+                    String nodo2 = (String) pAux1.getData();
+                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+                }
+	    }
+
+            String styleSheet = "node{"
+                    + "text-mode: normal; text-alignment: center;text-size: 15;"
+                    + "size: 30px; text-padding: 10;shape:circle; fill-color:gray;} "
+                    + ""
+                    + "edge{"
+                    + "shape: cubic-curve; arrow-shape:diamond; arrow-size: 10; "
+                    + "fill-mode: dyn-plain; fill-color: black; text-size: 10; text-alignment: under;}";
+
+            grafo.setAttribute("ui.stylesheet", styleSheet);
+            System.setProperty("org.graphstream.ui.renderer",
+                    "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
             Viewer viewer = grafo.display();
 
