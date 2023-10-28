@@ -62,7 +62,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
                 AgregarUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(AgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 130));
+        jPanel2.add(AgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 130, 130));
 
         EliminarUsuario.setBackground(new java.awt.Color(255, 255, 204));
         EliminarUsuario.setText("Eliminar  usuario ");
@@ -71,7 +71,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
                 EliminarUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(EliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, 130));
+        jPanel2.add(EliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 130, 130));
 
         Guardartxt.setBackground(new java.awt.Color(255, 255, 204));
         Guardartxt.setText("Guardar cambio");
@@ -80,7 +80,7 @@ public class Modificar_interfaz extends javax.swing.JFrame {
                 GuardartxtActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 130, 130));
+        jPanel2.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, 130));
 
         Back.setBackground(new java.awt.Color(255, 255, 204));
         Back.setText("Regresar");
@@ -93,9 +93,9 @@ public class Modificar_interfaz extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenido al sistema (2.).png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 550, 390));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 552, 430));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 552, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
