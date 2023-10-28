@@ -132,17 +132,6 @@ public class Modificar_interfaz extends javax.swing.JFrame {
             funciones.escribir_archivo();
         }
 
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                Main_interface.grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
-            }
-
-            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
-                String nodo1 = (String) pAux.getData();
-                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
-                    String nodo2 = (String) pAux1.getData();
-                   Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-		}
-	    }
     }//GEN-LAST:event_GuardartxtActionPerformed
 
     private void EliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarUsuarioActionPerformed
