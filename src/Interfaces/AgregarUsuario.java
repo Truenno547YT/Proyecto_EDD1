@@ -173,6 +173,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
             }
         }
 
+
+
     }//GEN-LAST:event_AgregarActionPerformed
 
     /**

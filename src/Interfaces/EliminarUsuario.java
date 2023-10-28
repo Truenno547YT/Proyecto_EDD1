@@ -113,6 +113,8 @@ public class EliminarUsuario extends javax.swing.JFrame {
                     aux = aux.getPnext();
                 }
             }
+
+
         }//GEN-LAST:event_EliminarActionPerformed
 
     /**

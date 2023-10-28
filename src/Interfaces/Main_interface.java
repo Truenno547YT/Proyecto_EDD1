@@ -32,7 +32,7 @@ import java.util.Random;
  */
 public class Main_interface extends javax.swing.JFrame {
 
-    Graph grafo = new SingleGraph("Red Social");
+    public static Graph grafo = new SingleGraph("Red Social");
 
     public static Modificar_interfaz v2;
 
@@ -131,6 +131,7 @@ public class Main_interface extends javax.swing.JFrame {
         // TODO add your handling code here:
 
 
+if(grafo.getNodeCount() == 0) {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
                 grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
             }
@@ -139,9 +140,14 @@ public class Main_interface extends javax.swing.JFrame {
                 String nodo1 = (String) pAux.getData();
                 for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
                     String nodo2 = (String) pAux1.getData();
-                    grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
-                }
+                   Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+		}
 	    }
+}else{
+	grafo.clear();
+	componentesActionPerformed(evt);
+	return;
+}
 	
         try {
             ListaRelaciones totalscc = Kosaraju.stronglyConnectedComponents(main.lista_usuarios);
@@ -275,6 +281,7 @@ public class Main_interface extends javax.swing.JFrame {
 	    return;
 	}
             
+try {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
                 grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
             }
@@ -286,6 +293,9 @@ public class Main_interface extends javax.swing.JFrame {
                     grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
                 }
 	    }
+}catch(Exception e){
+	System.out.println("no se ha cargado ningun archivo");
+}
 
             String styleSheet = "node{"
                     + "text-mode: normal; text-alignment: center;text-size: 15;"
