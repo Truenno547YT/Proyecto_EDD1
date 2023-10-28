@@ -265,6 +265,23 @@ if(grafo.getNodeCount() == 0) {
          */
 
 
+if(grafo.getNodeCount() == 0) {
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                grafo.addNode(pAux.getData().toString()).setAttribute("ui.label", pAux.getData().toString());
+            }
+
+            for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
+                String nodo1 = (String) pAux.getData();
+                for (NodoRelacion pAux1 = pAux.getAdyList().getpFirst(); pAux1 != null; pAux1 = pAux1.getPnext()) {
+                    String nodo2 = (String) pAux1.getData();
+                   Main_interface.grafo.addEdge(nodo1 + nodo2, nodo1, nodo2, true);
+		}
+	    }
+}else{
+	grafo.clear();
+	componentesActionPerformed(evt);
+	return;
+}
         if (grafo.getNodeCount() != 0) {
 		for (int i = 0; i < grafo.getNodeCount(); i++) {
 			grafo.getNode(i).setAttribute("ui.style", "fill-color:gray;");
