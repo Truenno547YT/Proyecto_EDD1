@@ -12,7 +12,8 @@ public class NodoRelacion<T> {
     
     private T data;
     private NodoRelacion pnext;
-
+    
+    //Constructor
     public NodoRelacion(T data) {
         this.data = data;
         this.pnext = null;

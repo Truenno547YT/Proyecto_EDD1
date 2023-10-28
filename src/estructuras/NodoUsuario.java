@@ -14,6 +14,7 @@ public class NodoUsuario<T> {
     private NodoUsuario pnext;
     private ListaRelaciones AdyList;
     
+    //Constructor
     public NodoUsuario(T data){
         this.data = data;
         this.pnext = null;

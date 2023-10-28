@@ -11,12 +11,14 @@ package estructuras;
 public class Pila<T> {
     private NodoRelacion<T> pCima;
     private int size;
-
+    
+    //Constructor
     public Pila() {
         this.pCima = null;
         this.size = 0;
     }
     
+    //Funciones de la pila
     public boolean isEmpty() {
         return this.pCima == null;
     }
@@ -41,41 +43,6 @@ public class Pila<T> {
         return node;
     }
 
-    public void search(T data) {
-        if (!this.isEmpty()) {
-            NodoRelacion<T> pAux = this.pop();
-            T aux = pAux.getData();
-            if (aux == data) {
-                System.out.println("El dato existe");
-            } else {
-                this.search(data);
-            }
-            this.push(pAux.getData());
-        } else {
-            System.out.println("Elemento No Encontrado");
-        }
-    }
-
-    public void submerge(T data) {
-        if (!this.isEmpty()) {
-            NodoRelacion<T> pAux = this.pop();
-            T aux = pAux.getData();
-            this.submerge(data);
-            this.push(pAux.getData());
-        } else {
-            this.push(data);
-        }
-    }
-
-    public void reverse() {
-        if (!this.isEmpty()) {
-            NodoRelacion<T> pAux = this.pop();
-            T aux = pAux.getData();
-            this.reverse();
-            this.submerge(aux);
-        }
-    }
-
     public void print() {
         this.print("");
 
@@ -92,7 +59,9 @@ public class Pila<T> {
             System.out.println(string + "//");
         }
     }
-
+    
+    
+    // Getters and Setters
     public NodoRelacion<T> getpCima() {
         return pCima;
     }
