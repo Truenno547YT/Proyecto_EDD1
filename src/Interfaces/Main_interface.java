@@ -130,6 +130,10 @@ public class Main_interface extends javax.swing.JFrame {
          */
         // TODO add your handling code here:
 
+if(main.lista_usuarios.getSize() == 0) {
+            JOptionPane.showMessageDialog(null, "La base de datos está vacía, tienes que cargar la información primero");
+	    return;
+}
 
 if(grafo.getNodeCount() == 0) {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
