@@ -18,18 +18,28 @@ import estructuras.NodoUsuario;
 public class Kosaraju {
 
     public static ListaRelaciones stronglyConnectedComponents(ListaUsuarios grafo) {
-        
-        /***
-         *Descripción: Esta es la estructura principal del Kosaraju, retorna una lista donde cada 
-         *nodo contiene la lista de componentes fuertemente conectados.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
 
+        /**
+         * *
+         * Descripción: Esta es la estructura principal del Kosaraju, retorna
+         * una lista donde cada nodo contiene la lista de componentes
+         * fuertemente conectados.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         ListaRelaciones visited = new ListaRelaciones();
         Pila pila = new Pila();
-        LlenarOrden(main.lista_usuarios.getpFirst().getData().toString(), visited, pila, grafo);
-        pila.push(main.lista_usuarios.getpFirst().getData());
+        NodoUsuario pAux = main.lista_usuarios.getpFirst();
+        for (int i = 0; i < main.lista_usuarios.getSize(); i++) {
+            if (!visited.contains(pAux.getData().toString())) {
+                LlenarOrden(pAux.getData().toString(), visited, pila, grafo);
+                pila.push(pAux.getData().toString());
+            }
+            pAux = pAux.getPnext();
+        }
+
         visited.resetList();
         ListaUsuarios traspuesto = new ListaUsuarios<NodoUsuario>();
         invertir_relaciones(traspuesto);
@@ -46,20 +56,21 @@ public class Kosaraju {
             }
         }
 
-        
         return totalscc;
 
     }
 
     public static void invertir_relaciones(ListaUsuarios lista_usuariosInvertidos) {
-        
-        /***
-         *Descripción: Esto se encarga de invertir el grafo pasado por como parametro
-         * Fué realizado por Andrés Diaz.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
 
+        /**
+         * *
+         * Descripción: Esto se encarga de invertir el grafo pasado por como
+         * parametro Fué realizado por Andrés Diaz.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         if (lista_usuariosInvertidos.getSize() == 0) {
             if (!main.lista_usuarios.isEmpty()) {
                 for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
@@ -89,14 +100,16 @@ public class Kosaraju {
     }
 
     private static void LlenarSCC(NodoUsuario nodo, ListaRelaciones visited, ListaRelaciones sccActual, ListaUsuarios traspuesto) {
-        
-        /***
-         *Descripción: Esto se encarga de llenar el nodo que  
-         *contiene los componentes fuertemente conectados.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
-        
+
+        /**
+         * *
+         * Descripción: Esto se encarga de llenar el nodo que contiene los
+         * componentes fuertemente conectados.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         visited.InsertLast(nodo.getData());
 
         ListaRelaciones adyacentes = nodo.getAdyList();
@@ -114,14 +127,17 @@ public class Kosaraju {
     }
 
     private static void LlenarOrden(String origen, ListaRelaciones visited, Pila pila, ListaUsuarios grafo) {
-        
-        /***
-         *Descripción: Esta función se encarga realizar el recorrido a profundidad del grafo por completo
-         *Además, de llenar la pila con la que trabaja el algoritmo.
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
 
+        /**
+         * *
+         * Descripción: Esta función se encarga realizar el recorrido a
+         * profundidad del grafo por completo Además, de llenar la pila con la
+         * que trabaja el algoritmo.
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         visited.InsertLast(origen);
         NodoUsuario nodo = BuscarNodo(origen, grafo);
         ListaRelaciones ady = nodo.getAdyList();
@@ -140,13 +156,15 @@ public class Kosaraju {
 
     public static NodoUsuario BuscarNodo(String valor, ListaUsuarios grafo) {
 
-        /***
-         *Descripción: Esta función se encarga de buscar un nodo dentro del grafo 
-         * que se le pase como parametro a partir de un valor dado
-         *@author: Ana Blanco
-         *@version: 26/10/2023
-         * */
-        
+        /**
+         * *
+         * Descripción: Esta función se encarga de buscar un nodo dentro del
+         * grafo que se le pase como parametro a partir de un valor dado
+         *
+         * @author: Ana Blanco
+         * @version: 26/10/2023
+         *
+         */
         for (NodoUsuario pAux = grafo.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
             if (pAux.getData().toString().equals(valor)) {
                 return pAux;
