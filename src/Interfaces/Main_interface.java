@@ -279,7 +279,7 @@ if(grafo.getNodeCount() == 0) {
 	    }
 }else{
 	grafo.clear();
-	componentesActionPerformed(evt);
+	VerGrafoActionPerformed(evt);
 	return;
 }
         if (grafo.getNodeCount() != 0) {
