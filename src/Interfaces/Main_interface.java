@@ -130,10 +130,10 @@ public class Main_interface extends javax.swing.JFrame {
          */
         // TODO add your handling code here:
 
-if(main.lista_usuarios.getSize() == 0) {
+        if (main.lista_usuarios.getSize() == 0) {
             JOptionPane.showMessageDialog(null, "La base de datos está vacía, tienes que cargar la información primero");
-	    return;
-}
+            return;
+        }
 
         if (grafo.getNodeCount() == 0) {
             for (NodoUsuario pAux = main.lista_usuarios.getpFirst(); pAux != null; pAux = pAux.getPnext()) {
@@ -160,7 +160,7 @@ if(main.lista_usuarios.getSize() == 0) {
                 String comp = "";
                 ListaRelaciones pAuxreal = (ListaRelaciones) pAux.getData();
                 Random random = new Random();
-                int nextInt = random.nextInt(0xffffff + 1);
+                int nextInt = random.nextInt(0xffffff + 3);
                 String colorCode = String.format("#%06x", nextInt);
                 String random_color = colorCode;
                 for (NodoRelacion pAux2 = pAuxreal.getpFirst(); pAux2 != null; pAux2 = pAux2.getPnext()) {
@@ -292,7 +292,6 @@ if(main.lista_usuarios.getSize() == 0) {
         grafo.setAutoCreate(true);
 
         if (!main.lista_usuarios.isEmpty()) {
-            System.out.println("too fino");
         } else {
             JOptionPane.showMessageDialog(null, "No se ha cargado ningún archivo!");
             return;

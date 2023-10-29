@@ -48,6 +48,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(181, 176, 193));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(255, 255, 204));
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +59,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
 
         jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 210, -1));
 
+        Eliminar.setBackground(new java.awt.Color(255, 255, 204));
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
