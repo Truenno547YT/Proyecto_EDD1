@@ -78,7 +78,7 @@ public class funciones {
                 usuario.setAdyList(relaciones);
             }
 
-            JOptionPane.showMessageDialog(null, "Ha ingresado la información correctamente!");
+            JOptionPane.showMessageDialog(null, "Ha ingresado la información correctamente!\nEs necesario que guardes la información ingresada, lo encuentras en el botón de modificar datos de usuarios.");
 
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erorr!!!! No has cargado el archivo correcto");
